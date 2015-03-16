@@ -221,4 +221,13 @@ class ZoneController extends Controller
             ->getForm()
         ;
     }
+    private function ahmedAction($id)
+    {
+        return $this->createFormBuilder()
+            ->setAction($this->generateUrl('zone_delete', array('id' => $id)))
+            ->setMethod('DELETE')
+            ->add('submit', 'submit', array('label' => 'Delete'))
+            ->getForm()
+        ;
+    }
 }
