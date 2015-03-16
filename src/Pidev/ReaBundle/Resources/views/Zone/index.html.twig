@@ -1,0 +1,59 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Zone list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Libelle</th>
+                <th>Education</th>
+                <th>Environement</th>
+                <th>Secoursetinterventionurgence</th>
+                <th>Sante</th>
+                <th>Loisirs</th>
+                <th>Securite</th>
+                <th>Transport</th>
+                <th>Eauxusees</th>
+                <th>Nbrvote</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('zone_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.libelle }}</td>
+                <td>{{ entity.education }}</td>
+                <td>{{ entity.environement }}</td>
+                <td>{{ entity.secoursetinterventionurgence }}</td>
+                <td>{{ entity.sante }}</td>
+                <td>{{ entity.loisirs }}</td>
+                <td>{{ entity.securite }}</td>
+                <td>{{ entity.transport }}</td>
+                <td>{{ entity.eauxusees }}</td>
+                <td>{{ entity.nbrvote }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('zone_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('zone_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('zone_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}
