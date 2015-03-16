@@ -1,0 +1,30 @@
+zone:
+    path:     /
+    defaults: { _controller: "PidevReaBundle:Zone:index" }
+
+zone_show:
+    path:     /{id}/show
+    defaults: { _controller: "PidevReaBundle:Zone:show" }
+
+zone_new:
+    path:     /new
+    defaults: { _controller: "PidevReaBundle:Zone:new" }
+
+zone_create:
+    path:     /create
+    defaults: { _controller: "PidevReaBundle:Zone:create" }
+    requirements: { _method: post }
+
+zone_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PidevReaBundle:Zone:edit" }
+
+zone_update:
+    path:     /{id}/update
+    defaults: { _controller: "PidevReaBundle:Zone:update" }
+    requirements: { _method: post|put }
+
+zone_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PidevReaBundle:Zone:delete" }
+    requirements: { _method: post|delete }
