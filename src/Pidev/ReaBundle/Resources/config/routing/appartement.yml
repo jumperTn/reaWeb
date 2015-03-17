@@ -1,0 +1,30 @@
+appartement:
+    path:     /
+    defaults: { _controller: "PidevReaBundle:Appartement:index" }
+
+appartement_show:
+    path:     /{id}/show
+    defaults: { _controller: "PidevReaBundle:Appartement:show" }
+
+appartement_new:
+    path:     /new
+    defaults: { _controller: "PidevReaBundle:Appartement:new" }
+
+appartement_create:
+    path:     /create
+    defaults: { _controller: "PidevReaBundle:Appartement:create" }
+    requirements: { _method: post }
+
+appartement_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PidevReaBundle:Appartement:edit" }
+
+appartement_update:
+    path:     /{id}/update
+    defaults: { _controller: "PidevReaBundle:Appartement:update" }
+    requirements: { _method: post|put }
+
+appartement_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PidevReaBundle:Appartement:delete" }
+    requirements: { _method: post|delete }

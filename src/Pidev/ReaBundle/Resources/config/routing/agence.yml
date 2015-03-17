@@ -1,0 +1,30 @@
+agence:
+    path:     /
+    defaults: { _controller: "PidevReaBundle:Agence:index" }
+
+agence_show:
+    path:     /{id}/show
+    defaults: { _controller: "PidevReaBundle:Agence:show" }
+
+agence_new:
+    path:     /new
+    defaults: { _controller: "PidevReaBundle:Agence:new" }
+
+agence_create:
+    path:     /create
+    defaults: { _controller: "PidevReaBundle:Agence:create" }
+    requirements: { _method: post }
+
+agence_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PidevReaBundle:Agence:edit" }
+
+agence_update:
+    path:     /{id}/update
+    defaults: { _controller: "PidevReaBundle:Agence:update" }
+    requirements: { _method: post|put }
+
+agence_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PidevReaBundle:Agence:delete" }
+    requirements: { _method: post|delete }

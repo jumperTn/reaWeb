@@ -1,0 +1,30 @@
+immeuble:
+    path:     /
+    defaults: { _controller: "PidevReaBundle:Immeuble:index" }
+
+immeuble_show:
+    path:     /{id}/show
+    defaults: { _controller: "PidevReaBundle:Immeuble:show" }
+
+immeuble_new:
+    path:     /new
+    defaults: { _controller: "PidevReaBundle:Immeuble:new" }
+
+immeuble_create:
+    path:     /create
+    defaults: { _controller: "PidevReaBundle:Immeuble:create" }
+    requirements: { _method: post }
+
+immeuble_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PidevReaBundle:Immeuble:edit" }
+
+immeuble_update:
+    path:     /{id}/update
+    defaults: { _controller: "PidevReaBundle:Immeuble:update" }
+    requirements: { _method: post|put }
+
+immeuble_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PidevReaBundle:Immeuble:delete" }
+    requirements: { _method: post|delete }

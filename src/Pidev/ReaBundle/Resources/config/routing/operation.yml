@@ -1,0 +1,30 @@
+operation:
+    path:     /
+    defaults: { _controller: "PidevReaBundle:Operation:index" }
+
+operation_show:
+    path:     /{id}/show
+    defaults: { _controller: "PidevReaBundle:Operation:show" }
+
+operation_new:
+    path:     /new
+    defaults: { _controller: "PidevReaBundle:Operation:new" }
+
+operation_create:
+    path:     /create
+    defaults: { _controller: "PidevReaBundle:Operation:create" }
+    requirements: { _method: post }
+
+operation_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PidevReaBundle:Operation:edit" }
+
+operation_update:
+    path:     /{id}/update
+    defaults: { _controller: "PidevReaBundle:Operation:update" }
+    requirements: { _method: post|put }
+
+operation_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PidevReaBundle:Operation:delete" }
+    requirements: { _method: post|delete }

@@ -1,0 +1,30 @@
+nouveau:
+    path:     /
+    defaults: { _controller: "PidevReaBundle:Nouveau:index" }
+
+nouveau_show:
+    path:     /{id}/show
+    defaults: { _controller: "PidevReaBundle:Nouveau:show" }
+
+nouveau_new:
+    path:     /new
+    defaults: { _controller: "PidevReaBundle:Nouveau:new" }
+
+nouveau_create:
+    path:     /create
+    defaults: { _controller: "PidevReaBundle:Nouveau:create" }
+    requirements: { _method: post }
+
+nouveau_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PidevReaBundle:Nouveau:edit" }
+
+nouveau_update:
+    path:     /{id}/update
+    defaults: { _controller: "PidevReaBundle:Nouveau:update" }
+    requirements: { _method: post|put }
+
+nouveau_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PidevReaBundle:Nouveau:delete" }
+    requirements: { _method: post|delete }

@@ -1,0 +1,43 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Operation list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Numcontrat</th>
+                <th>Dateoperation</th>
+                <th>Nature</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('operation_show', { 'id': entity.numcontrat }) }}">{{ entity.numcontrat }}</a></td>
+                <td>{% if entity.dateoperation %}{{ entity.dateoperation|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.nature }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('operation_show', { 'id': entity.numcontrat }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('operation_edit', { 'id': entity.numcontrat }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('operation_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

@@ -1,0 +1,30 @@
+demande:
+    path:     /
+    defaults: { _controller: "PidevReaBundle:Demande:index" }
+
+demande_show:
+    path:     /{id}/show
+    defaults: { _controller: "PidevReaBundle:Demande:show" }
+
+demande_new:
+    path:     /new
+    defaults: { _controller: "PidevReaBundle:Demande:new" }
+
+demande_create:
+    path:     /create
+    defaults: { _controller: "PidevReaBundle:Demande:create" }
+    requirements: { _method: post }
+
+demande_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PidevReaBundle:Demande:edit" }
+
+demande_update:
+    path:     /{id}/update
+    defaults: { _controller: "PidevReaBundle:Demande:update" }
+    requirements: { _method: post|put }
+
+demande_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PidevReaBundle:Demande:delete" }
+    requirements: { _method: post|delete }

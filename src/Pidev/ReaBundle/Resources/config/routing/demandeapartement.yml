@@ -1,0 +1,30 @@
+demandeapartement:
+    path:     /
+    defaults: { _controller: "PidevReaBundle:Demandeapartement:index" }
+
+demandeapartement_show:
+    path:     /{id}/show
+    defaults: { _controller: "PidevReaBundle:Demandeapartement:show" }
+
+demandeapartement_new:
+    path:     /new
+    defaults: { _controller: "PidevReaBundle:Demandeapartement:new" }
+
+demandeapartement_create:
+    path:     /create
+    defaults: { _controller: "PidevReaBundle:Demandeapartement:create" }
+    requirements: { _method: post }
+
+demandeapartement_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PidevReaBundle:Demandeapartement:edit" }
+
+demandeapartement_update:
+    path:     /{id}/update
+    defaults: { _controller: "PidevReaBundle:Demandeapartement:update" }
+    requirements: { _method: post|put }
+
+demandeapartement_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PidevReaBundle:Demandeapartement:delete" }
+    requirements: { _method: post|delete }

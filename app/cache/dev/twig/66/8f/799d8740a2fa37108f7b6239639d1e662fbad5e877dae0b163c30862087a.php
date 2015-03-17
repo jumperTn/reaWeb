@@ -32,9 +32,7 @@ class __TwigTemplate_668f799d8740a2fa37108f7b6239639d1e662fbad5e877dae0b163c3086
         // line 6
         $this->displayBlock('stylesheets', $context, $blocks);
         // line 7
-        echo "        <link rel=\"icon\" type=\"image/x-icon\" href=\"";
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("favicon.ico"), "html", null, true);
-        echo "\" />
+        echo "
     </head>
     <body>
         ";
@@ -75,13 +73,8 @@ class __TwigTemplate_668f799d8740a2fa37108f7b6239639d1e662fbad5e877dae0b163c3086
         return "::base.html.twig";
     }
 
-    public function isTraitable()
-    {
-        return false;
-    }
-
     public function getDebugInfo()
     {
-        return array (  69 => 11,  64 => 10,  59 => 6,  53 => 5,  47 => 12,  44 => 11,  42 => 10,  35 => 7,  33 => 6,  29 => 5,  23 => 1,);
+        return array (  67 => 11,  62 => 10,  57 => 6,  51 => 5,  45 => 12,  42 => 11,  40 => 10,  35 => 7,  33 => 6,  29 => 5,  23 => 1,);
     }
 }
