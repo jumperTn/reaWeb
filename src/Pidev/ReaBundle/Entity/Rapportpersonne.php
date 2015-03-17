@@ -7,11 +7,20 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Rapportpersonne
  *
- * @ORM\Table(name="rapportpersonne", indexes={@ORM\Index(name="rapportpersonne_ibfk_3", columns={"idRapporteur"}), @ORM\Index(name="rapportpersonne_ibfk_2", columns={"idRdv"}), @ORM\Index(name="IDX_5648F1AE8DCB6E", columns={"idRapport"})})
+ * @ORM\Table(name="rapportpersonne", uniqueConstraints={@ORM\UniqueConstraint(name="idRapport_2", columns={"idRapport", "idRdv", "idRapporteur"})}, indexes={@ORM\Index(name="rapportpersonne_ibfk_3", columns={"idRapporteur"}), @ORM\Index(name="rapportpersonne_ibfk_2", columns={"idRdv"}), @ORM\Index(name="idRapport", columns={"idRapport"})})
  * @ORM\Entity
  */
 class Rapportpersonne
 {
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
     /**
      * @var string
      *
@@ -20,11 +29,19 @@ class Rapportpersonne
     private $contenue;
 
     /**
+     * @var \Rendezvous
+     *
+     * @ORM\ManyToOne(targetEntity="Rendezvous")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idRdv", referencedColumnName="id")
+     * })
+     */
+    private $idrdv;
+
+    /**
      * @var \Utilisateur
      *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="Utilisateur")
+     * @ORM\ManyToOne(targetEntity="Utilisateur")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idRapporteur", referencedColumnName="id")
      * })
@@ -34,28 +51,24 @@ class Rapportpersonne
     /**
      * @var \Rapport
      *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="Rapport")
+     * @ORM\ManyToOne(targetEntity="Rapport")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idRapport", referencedColumnName="id")
      * })
      */
     private $idrapport;
 
+
+
     /**
-     * @var \Rendezvous
+     * Get id
      *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="Rendezvous")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idRdv", referencedColumnName="id")
-     * })
+     * @return integer 
      */
-    private $idrdv;
-
-
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
      * Set contenue
@@ -81,12 +94,35 @@ class Rapportpersonne
     }
 
     /**
+     * Set idrdv
+     *
+     * @param \Pidev\ReaBundle\Entity\Rendezvous $idrdv
+     * @return Rapportpersonne
+     */
+    public function setIdrdv(\Pidev\ReaBundle\Entity\Rendezvous $idrdv = null)
+    {
+        $this->idrdv = $idrdv;
+
+        return $this;
+    }
+
+    /**
+     * Get idrdv
+     *
+     * @return \Pidev\ReaBundle\Entity\Rendezvous 
+     */
+    public function getIdrdv()
+    {
+        return $this->idrdv;
+    }
+
+    /**
      * Set idrapporteur
      *
      * @param \Pidev\ReaBundle\Entity\Utilisateur $idrapporteur
      * @return Rapportpersonne
      */
-    public function setIdrapporteur(\Pidev\ReaBundle\Entity\Utilisateur $idrapporteur)
+    public function setIdrapporteur(\Pidev\ReaBundle\Entity\Utilisateur $idrapporteur = null)
     {
         $this->idrapporteur = $idrapporteur;
 
@@ -109,7 +145,7 @@ class Rapportpersonne
      * @param \Pidev\ReaBundle\Entity\Rapport $idrapport
      * @return Rapportpersonne
      */
-    public function setIdrapport(\Pidev\ReaBundle\Entity\Rapport $idrapport)
+    public function setIdrapport(\Pidev\ReaBundle\Entity\Rapport $idrapport = null)
     {
         $this->idrapport = $idrapport;
 
@@ -124,28 +160,5 @@ class Rapportpersonne
     public function getIdrapport()
     {
         return $this->idrapport;
-    }
-
-    /**
-     * Set idrdv
-     *
-     * @param \Pidev\ReaBundle\Entity\Rendezvous $idrdv
-     * @return Rapportpersonne
-     */
-    public function setIdrdv(\Pidev\ReaBundle\Entity\Rendezvous $idrdv)
-    {
-        $this->idrdv = $idrdv;
-
-        return $this;
-    }
-
-    /**
-     * Get idrdv
-     *
-     * @return \Pidev\ReaBundle\Entity\Rendezvous 
-     */
-    public function getIdrdv()
-    {
-        return $this->idrdv;
     }
 }

@@ -2,4 +2,4 @@ _assetic:
     resource: .
     type: assetic
 _app:
-    resource: 'C:\wamp\www\pidevtest\reaWeb\app/config/routing_dev.yml'
+    resource: 'C:\wamp\www\REA\app/config/routing_dev.yml'

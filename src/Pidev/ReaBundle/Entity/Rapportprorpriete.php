@@ -7,11 +7,20 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Rapportprorpriete
  *
- * @ORM\Table(name="rapportprorpriete", indexes={@ORM\Index(name="idoffre", columns={"idoffre"}), @ORM\Index(name="idRapporteur", columns={"idRapporteur"}), @ORM\Index(name="IDX_1DDD050AE8DCB6E", columns={"idRapport"})})
+ * @ORM\Table(name="rapportprorpriete", uniqueConstraints={@ORM\UniqueConstraint(name="idRapport_2", columns={"idRapport", "idoffre", "idRapporteur"})}, indexes={@ORM\Index(name="idoffre", columns={"idoffre"}), @ORM\Index(name="idRapporteur", columns={"idRapporteur"}), @ORM\Index(name="idRapport", columns={"idRapport"})})
  * @ORM\Entity
  */
 class Rapportprorpriete
 {
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
     /**
      * @var string
      *
@@ -20,11 +29,19 @@ class Rapportprorpriete
     private $contenue;
 
     /**
+     * @var \Offre
+     *
+     * @ORM\ManyToOne(targetEntity="Offre")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idoffre", referencedColumnName="id")
+     * })
+     */
+    private $idoffre;
+
+    /**
      * @var \Utilisateur
      *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="Utilisateur")
+     * @ORM\ManyToOne(targetEntity="Utilisateur")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idRapporteur", referencedColumnName="id")
      * })
@@ -34,28 +51,24 @@ class Rapportprorpriete
     /**
      * @var \Rapport
      *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="Rapport")
+     * @ORM\ManyToOne(targetEntity="Rapport")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idRapport", referencedColumnName="id")
      * })
      */
     private $idrapport;
 
+
+
     /**
-     * @var \Offre
+     * Get id
      *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="Offre")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idoffre", referencedColumnName="id")
-     * })
+     * @return integer 
      */
-    private $idoffre;
-
-
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
      * Set contenue
@@ -81,12 +94,35 @@ class Rapportprorpriete
     }
 
     /**
+     * Set idoffre
+     *
+     * @param \Pidev\ReaBundle\Entity\Offre $idoffre
+     * @return Rapportprorpriete
+     */
+    public function setIdoffre(\Pidev\ReaBundle\Entity\Offre $idoffre = null)
+    {
+        $this->idoffre = $idoffre;
+
+        return $this;
+    }
+
+    /**
+     * Get idoffre
+     *
+     * @return \Pidev\ReaBundle\Entity\Offre 
+     */
+    public function getIdoffre()
+    {
+        return $this->idoffre;
+    }
+
+    /**
      * Set idrapporteur
      *
      * @param \Pidev\ReaBundle\Entity\Utilisateur $idrapporteur
      * @return Rapportprorpriete
      */
-    public function setIdrapporteur(\Pidev\ReaBundle\Entity\Utilisateur $idrapporteur)
+    public function setIdrapporteur(\Pidev\ReaBundle\Entity\Utilisateur $idrapporteur = null)
     {
         $this->idrapporteur = $idrapporteur;
 
@@ -109,7 +145,7 @@ class Rapportprorpriete
      * @param \Pidev\ReaBundle\Entity\Rapport $idrapport
      * @return Rapportprorpriete
      */
-    public function setIdrapport(\Pidev\ReaBundle\Entity\Rapport $idrapport)
+    public function setIdrapport(\Pidev\ReaBundle\Entity\Rapport $idrapport = null)
     {
         $this->idrapport = $idrapport;
 
@@ -124,28 +160,5 @@ class Rapportprorpriete
     public function getIdrapport()
     {
         return $this->idrapport;
-    }
-
-    /**
-     * Set idoffre
-     *
-     * @param \Pidev\ReaBundle\Entity\Offre $idoffre
-     * @return Rapportprorpriete
-     */
-    public function setIdoffre(\Pidev\ReaBundle\Entity\Offre $idoffre)
-    {
-        $this->idoffre = $idoffre;
-
-        return $this;
-    }
-
-    /**
-     * Get idoffre
-     *
-     * @return \Pidev\ReaBundle\Entity\Offre 
-     */
-    public function getIdoffre()
-    {
-        return $this->idoffre;
     }
 }
