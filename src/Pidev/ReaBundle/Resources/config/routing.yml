@@ -1,3 +1,7 @@
+pidev_rea_ban:
+    resource: "@PidevReaBundle/Resources/config/routing/ban.yml"
+    prefix:   /ban
+
 pidev_rea_zone:
     resource: "@PidevReaBundle/Resources/config/routing/zone.yml"
     prefix:   /zone
