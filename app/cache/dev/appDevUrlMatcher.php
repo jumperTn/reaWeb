@@ -187,65 +187,62 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        if (0 === strpos($pathinfo, '/zone')) {
-            // zone
-            if (rtrim($pathinfo, '/') === '/zone') {
-                if (substr($pathinfo, -1) !== '/') {
-                    return $this->redirect($pathinfo.'/', 'zone');
-                }
-
-                return array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\ZoneController::indexAction',  '_route' => 'zone',);
+        // zone
+        if (rtrim($pathinfo, '/') === '') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'zone');
             }
 
-            // zone_show
-            if (preg_match('#^/zone/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'zone_show')), array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\ZoneController::showAction',));
-            }
-
-            // zone_new
-            if ($pathinfo === '/zone/new') {
-                return array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\ZoneController::newAction',  '_route' => 'zone_new',);
-            }
-
-            // zone_create
-            if ($pathinfo === '/zone/create') {
-                if ($this->context->getMethod() != 'POST') {
-                    $allow[] = 'POST';
-                    goto not_zone_create;
-                }
-
-                return array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\ZoneController::createAction',  '_route' => 'zone_create',);
-            }
-            not_zone_create:
-
-            // zone_edit
-            if (preg_match('#^/zone/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'zone_edit')), array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\ZoneController::editAction',));
-            }
-
-            // zone_update
-            if (preg_match('#^/zone/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
-                if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
-                    $allow = array_merge($allow, array('POST', 'PUT'));
-                    goto not_zone_update;
-                }
-
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'zone_update')), array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\ZoneController::updateAction',));
-            }
-            not_zone_update:
-
-            // zone_delete
-            if (preg_match('#^/zone/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
-                if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
-                    $allow = array_merge($allow, array('POST', 'DELETE'));
-                    goto not_zone_delete;
-                }
-
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'zone_delete')), array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\ZoneController::deleteAction',));
-            }
-            not_zone_delete:
-
+            return array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\ZoneController::indexAction',  '_route' => 'zone',);
         }
+
+        // zone_show
+        if (preg_match('#^/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'zone_show')), array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\ZoneController::showAction',));
+        }
+
+        // zone_new
+        if ($pathinfo === '/new') {
+            return array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\ZoneController::newAction',  '_route' => 'zone_new',);
+        }
+
+        // zone_create
+        if ($pathinfo === '/create') {
+            if ($this->context->getMethod() != 'POST') {
+                $allow[] = 'POST';
+                goto not_zone_create;
+            }
+
+            return array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\ZoneController::createAction',  '_route' => 'zone_create',);
+        }
+        not_zone_create:
+
+        // zone_edit
+        if (preg_match('#^/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'zone_edit')), array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\ZoneController::editAction',));
+        }
+
+        // zone_update
+        if (preg_match('#^/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
+            if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
+                $allow = array_merge($allow, array('POST', 'PUT'));
+                goto not_zone_update;
+            }
+
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'zone_update')), array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\ZoneController::updateAction',));
+        }
+        not_zone_update:
+
+        // zone_delete
+        if (preg_match('#^/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+            if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
+                $allow = array_merge($allow, array('POST', 'DELETE'));
+                goto not_zone_delete;
+            }
+
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'zone_delete')), array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\ZoneController::deleteAction',));
+        }
+        not_zone_delete:
 
         // pidev_rea_homepage
         if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
