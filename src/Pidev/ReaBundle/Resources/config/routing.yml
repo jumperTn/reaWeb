@@ -89,7 +89,9 @@ pidev_rea_ban:
 pidev_rea_zone:
     resource: "@PidevReaBundle/Resources/config/routing/zone.yml"
     prefix:   /zone
-
+pidev_rea_zone1:
+    resource: "@PidevReaBundle/Resources/config/routing/zone.yml"
+    prefix:   /
 pidev_rea_homepage:
     path:     /hello/{name}
     defaults: { _controller: PidevReaBundle:Default:index }
