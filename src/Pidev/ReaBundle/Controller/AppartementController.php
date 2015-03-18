@@ -44,7 +44,7 @@ class AppartementController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('appartement_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('appartement_show', array('id' => $entity->getIdoffre())));
         }
 
         return $this->render('PidevReaBundle:Appartement:new.html.twig', array(
@@ -143,7 +143,7 @@ class AppartementController extends Controller
     private function createEditForm(Appartement $entity)
     {
         $form = $this->createForm(new AppartementType(), $entity, array(
-            'action' => $this->generateUrl('appartement_update', array('id' => $entity->getId())),
+            'action' => $this->generateUrl('appartement_update', array('id' => $entity->getIdoffre())),
             'method' => 'PUT',
         ));
 

@@ -44,7 +44,7 @@ class ImmeubleController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('immeuble_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('immeuble_show', array('id' => $entity->getIdoffre())));
         }
 
         return $this->render('PidevReaBundle:Immeuble:new.html.twig', array(
@@ -143,7 +143,7 @@ class ImmeubleController extends Controller
     private function createEditForm(Immeuble $entity)
     {
         $form = $this->createForm(new ImmeubleType(), $entity, array(
-            'action' => $this->generateUrl('immeuble_update', array('id' => $entity->getId())),
+            'action' => $this->generateUrl('immeuble_update', array('id' => $entity->getIdoffre())),
             'method' => 'PUT',
         ));
 

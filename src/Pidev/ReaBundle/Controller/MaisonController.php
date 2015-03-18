@@ -44,7 +44,7 @@ class MaisonController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('maison_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('maison_show', array('id' => $entity->getIdoffre())));
         }
 
         return $this->render('PidevReaBundle:Maison:new.html.twig', array(
@@ -143,7 +143,7 @@ class MaisonController extends Controller
     private function createEditForm(Maison $entity)
     {
         $form = $this->createForm(new MaisonType(), $entity, array(
-            'action' => $this->generateUrl('maison_update', array('id' => $entity->getId())),
+            'action' => $this->generateUrl('maison_update', array('id' => $entity->getIdoffre())),
             'method' => 'PUT',
         ));
 
