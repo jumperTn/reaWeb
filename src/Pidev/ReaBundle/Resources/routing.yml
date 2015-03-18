@@ -1,0 +1,97 @@
+pidev_rea_utilisateur:
+    resource: "@PidevReaBundle/Resources/config/routing/utilisateur.yml"
+    prefix:   /utilisateur
+
+pidev_rea_rendezvous:
+    resource: "@PidevReaBundle/Resources/config/routing/rendezvous.yml"
+    prefix:   /rendezvous
+
+pidev_rea_rapportprorpriete:
+    resource: "@PidevReaBundle/Resources/config/routing/rapportprorpriete.yml"
+    prefix:   /rapportprorpriete
+
+pidev_rea_rapportpersonne:
+    resource: "@PidevReaBundle/Resources/config/routing/rapportpersonne.yml"
+    prefix:   /rapportpersonne
+
+pidev_rea_rapport:
+    resource: "@PidevReaBundle/Resources/config/routing/rapport.yml"
+    prefix:   /rapport
+
+pidev_rea_operation:
+    resource: "@PidevReaBundle/Resources/config/routing/operation.yml"
+    prefix:   /operation
+
+pidev_rea_offre:
+    resource: "@PidevReaBundle/Resources/config/routing/offre.yml"
+    prefix:   /offre
+
+pidev_rea_nouveau:
+    resource: "@PidevReaBundle/Resources/config/routing/nouveau.yml"
+    prefix:   /nouveau
+
+pidev_rea_notification:
+    resource: "@PidevReaBundle/Resources/config/routing/notification.yml"
+    prefix:   /notification
+
+pidev_rea_maison:
+    resource: "@PidevReaBundle/Resources/config/routing/maison.yml"
+    prefix:   /maison
+
+pidev_rea_immeuble:
+    resource: "@PidevReaBundle/Resources/config/routing/immeuble.yml"
+    prefix:   /immeuble
+
+pidev_rea_gallerie:
+    resource: "@PidevReaBundle/Resources/config/routing/gallerie.yml"
+    prefix:   /gallerie
+
+pidev_rea_favoris:
+    resource: "@PidevReaBundle/Resources/config/routing/favoris.yml"
+    prefix:   /favoris
+
+pidev_rea_demandemaison:
+    resource: "@PidevReaBundle/Resources/config/routing/demandemaison.yml"
+    prefix:   /demandemaison
+
+pidev_rea_demandeimmeuble:
+    resource: "@PidevReaBundle/Resources/config/routing/demandeimmeuble.yml"
+    prefix:   /demandeimmeuble
+
+pidev_rea_demandeapartement:
+    resource: "@PidevReaBundle/Resources/config/routing/demandeapartement.yml"
+    prefix:   /demandeapartement
+
+pidev_rea_demande:
+    resource: "@PidevReaBundle/Resources/config/routing/demande.yml"
+    prefix:   /demande
+
+pidev_rea_contact:
+    resource: "@PidevReaBundle/Resources/config/routing/contact.yml"
+    prefix:   /contact
+
+pidev_rea_appartement:
+    resource: "@PidevReaBundle/Resources/config/routing/appartement.yml"
+    prefix:   /appartement
+
+pidev_rea_agence:
+    resource: "@PidevReaBundle/Resources/config/routing/agence.yml"
+    prefix:   /agence
+
+pidev_rea_client:
+    resource: "@PidevReaBundle/Resources/config/routing/client.yml"
+    prefix:   /client
+
+pidev_rea_ban:
+    resource: "@PidevReaBundle/Resources/config/routing/ban.yml"
+    prefix:   /ban
+
+pidev_rea_zone:
+    resource: "@PidevReaBundle/Resources/config/routing/zone.yml"
+    prefix:   /zone
+pidev_rea_zone1:
+    resource: "@PidevReaBundle/Resources/config/routing/zone.yml"
+    prefix:   /
+pidev_rea_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: PidevReaBundle:Default:index }

@@ -101,44 +101,6 @@ class Utilisateur
      */
     private $idagence4;
 
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="Agence", inversedBy="idutilisateur")
-     * @ORM\JoinTable(name="ban",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="idUtilisateur", referencedColumnName="id")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="idAgence", referencedColumnName="id")
-     *   }
-     * )
-     */
-    private $idagence;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="Offre", inversedBy="idutilisateur")
-     * @ORM\JoinTable(name="favoris",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="idUtilisateur", referencedColumnName="id")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="idOffre", referencedColumnName="id")
-     *   }
-     * )
-     */
-    private $idoffre;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->idagence = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->idoffre = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
 
     /**
@@ -402,71 +364,5 @@ class Utilisateur
     public function getIdagence4()
     {
         return $this->idagence4;
-    }
-
-    /**
-     * Add idagence
-     *
-     * @param \Pidev\ReaBundle\Entity\Agence $idagence
-     * @return Utilisateur
-     */
-    public function addIdagence(\Pidev\ReaBundle\Entity\Agence $idagence)
-    {
-        $this->idagence[] = $idagence;
-
-        return $this;
-    }
-
-    /**
-     * Remove idagence
-     *
-     * @param \Pidev\ReaBundle\Entity\Agence $idagence
-     */
-    public function removeIdagence(\Pidev\ReaBundle\Entity\Agence $idagence)
-    {
-        $this->idagence->removeElement($idagence);
-    }
-
-    /**
-     * Get idagence
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getIdagence()
-    {
-        return $this->idagence;
-    }
-
-    /**
-     * Add idoffre
-     *
-     * @param \Pidev\ReaBundle\Entity\Offre $idoffre
-     * @return Utilisateur
-     */
-    public function addIdoffre(\Pidev\ReaBundle\Entity\Offre $idoffre)
-    {
-        $this->idoffre[] = $idoffre;
-
-        return $this;
-    }
-
-    /**
-     * Remove idoffre
-     *
-     * @param \Pidev\ReaBundle\Entity\Offre $idoffre
-     */
-    public function removeIdoffre(\Pidev\ReaBundle\Entity\Offre $idoffre)
-    {
-        $this->idoffre->removeElement($idoffre);
-    }
-
-    /**
-     * Get idoffre
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getIdoffre()
-    {
-        return $this->idoffre;
     }
 }

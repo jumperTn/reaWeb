@@ -1,0 +1,30 @@
+notification:
+    path:     /
+    defaults: { _controller: "PidevReaBundle:Notification:index" }
+
+notification_show:
+    path:     /{id}/show
+    defaults: { _controller: "PidevReaBundle:Notification:show" }
+
+notification_new:
+    path:     /new
+    defaults: { _controller: "PidevReaBundle:Notification:new" }
+
+notification_create:
+    path:     /create
+    defaults: { _controller: "PidevReaBundle:Notification:create" }
+    requirements: { _method: post }
+
+notification_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PidevReaBundle:Notification:edit" }
+
+notification_update:
+    path:     /{id}/update
+    defaults: { _controller: "PidevReaBundle:Notification:update" }
+    requirements: { _method: post|put }
+
+notification_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PidevReaBundle:Notification:delete" }
+    requirements: { _method: post|delete }

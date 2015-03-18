@@ -1,0 +1,30 @@
+rapport:
+    path:     /
+    defaults: { _controller: "PidevReaBundle:Rapport:index" }
+
+rapport_show:
+    path:     /{id}/show
+    defaults: { _controller: "PidevReaBundle:Rapport:show" }
+
+rapport_new:
+    path:     /new
+    defaults: { _controller: "PidevReaBundle:Rapport:new" }
+
+rapport_create:
+    path:     /create
+    defaults: { _controller: "PidevReaBundle:Rapport:create" }
+    requirements: { _method: post }
+
+rapport_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PidevReaBundle:Rapport:edit" }
+
+rapport_update:
+    path:     /{id}/update
+    defaults: { _controller: "PidevReaBundle:Rapport:update" }
+    requirements: { _method: post|put }
+
+rapport_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PidevReaBundle:Rapport:delete" }
+    requirements: { _method: post|delete }

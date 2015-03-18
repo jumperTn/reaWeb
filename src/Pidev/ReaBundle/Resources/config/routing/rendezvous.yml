@@ -1,0 +1,30 @@
+rendezvous:
+    path:     /
+    defaults: { _controller: "PidevReaBundle:Rendezvous:index" }
+
+rendezvous_show:
+    path:     /{id}/show
+    defaults: { _controller: "PidevReaBundle:Rendezvous:show" }
+
+rendezvous_new:
+    path:     /new
+    defaults: { _controller: "PidevReaBundle:Rendezvous:new" }
+
+rendezvous_create:
+    path:     /create
+    defaults: { _controller: "PidevReaBundle:Rendezvous:create" }
+    requirements: { _method: post }
+
+rendezvous_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PidevReaBundle:Rendezvous:edit" }
+
+rendezvous_update:
+    path:     /{id}/update
+    defaults: { _controller: "PidevReaBundle:Rendezvous:update" }
+    requirements: { _method: post|put }
+
+rendezvous_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PidevReaBundle:Rendezvous:delete" }
+    requirements: { _method: post|delete }

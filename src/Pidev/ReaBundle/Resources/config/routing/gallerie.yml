@@ -1,0 +1,30 @@
+gallerie:
+    path:     /
+    defaults: { _controller: "PidevReaBundle:Gallerie:index" }
+
+gallerie_show:
+    path:     /{id}/show
+    defaults: { _controller: "PidevReaBundle:Gallerie:show" }
+
+gallerie_new:
+    path:     /new
+    defaults: { _controller: "PidevReaBundle:Gallerie:new" }
+
+gallerie_create:
+    path:     /create
+    defaults: { _controller: "PidevReaBundle:Gallerie:create" }
+    requirements: { _method: post }
+
+gallerie_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PidevReaBundle:Gallerie:edit" }
+
+gallerie_update:
+    path:     /{id}/update
+    defaults: { _controller: "PidevReaBundle:Gallerie:update" }
+    requirements: { _method: post|put }
+
+gallerie_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PidevReaBundle:Gallerie:delete" }
+    requirements: { _method: post|delete }

@@ -1,0 +1,30 @@
+demandeimmeuble:
+    path:     /
+    defaults: { _controller: "PidevReaBundle:Demandeimmeuble:index" }
+
+demandeimmeuble_show:
+    path:     /{id}/show
+    defaults: { _controller: "PidevReaBundle:Demandeimmeuble:show" }
+
+demandeimmeuble_new:
+    path:     /new
+    defaults: { _controller: "PidevReaBundle:Demandeimmeuble:new" }
+
+demandeimmeuble_create:
+    path:     /create
+    defaults: { _controller: "PidevReaBundle:Demandeimmeuble:create" }
+    requirements: { _method: post }
+
+demandeimmeuble_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PidevReaBundle:Demandeimmeuble:edit" }
+
+demandeimmeuble_update:
+    path:     /{id}/update
+    defaults: { _controller: "PidevReaBundle:Demandeimmeuble:update" }
+    requirements: { _method: post|put }
+
+demandeimmeuble_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PidevReaBundle:Demandeimmeuble:delete" }
+    requirements: { _method: post|delete }

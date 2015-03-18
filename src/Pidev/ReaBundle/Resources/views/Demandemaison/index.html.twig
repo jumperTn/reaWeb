@@ -1,0 +1,43 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Demandemaison list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Nbrpiece</th>
+                <th>Typeusage</th>
+                <th>Nbretage</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('demandemaison_show', { 'id': entity.iddemande }) }}">{{ entity.nbrpiece }}</a></td>
+                <td>{{ entity.typeusage }}</td>
+                <td>{{ entity.nbretage }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('demandemaison_show', { 'id': entity.iddemande }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('demandemaison_edit', { 'id': entity.iddemande }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('demandemaison_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

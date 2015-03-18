@@ -1,0 +1,30 @@
+rapportpersonne:
+    path:     /
+    defaults: { _controller: "PidevReaBundle:Rapportpersonne:index" }
+
+rapportpersonne_show:
+    path:     /{id}/show
+    defaults: { _controller: "PidevReaBundle:Rapportpersonne:show" }
+
+rapportpersonne_new:
+    path:     /new
+    defaults: { _controller: "PidevReaBundle:Rapportpersonne:new" }
+
+rapportpersonne_create:
+    path:     /create
+    defaults: { _controller: "PidevReaBundle:Rapportpersonne:create" }
+    requirements: { _method: post }
+
+rapportpersonne_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PidevReaBundle:Rapportpersonne:edit" }
+
+rapportpersonne_update:
+    path:     /{id}/update
+    defaults: { _controller: "PidevReaBundle:Rapportpersonne:update" }
+    requirements: { _method: post|put }
+
+rapportpersonne_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PidevReaBundle:Rapportpersonne:delete" }
+    requirements: { _method: post|delete }

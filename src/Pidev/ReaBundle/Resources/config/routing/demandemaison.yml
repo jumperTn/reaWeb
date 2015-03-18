@@ -1,0 +1,30 @@
+demandemaison:
+    path:     /
+    defaults: { _controller: "PidevReaBundle:Demandemaison:index" }
+
+demandemaison_show:
+    path:     /{id}/show
+    defaults: { _controller: "PidevReaBundle:Demandemaison:show" }
+
+demandemaison_new:
+    path:     /new
+    defaults: { _controller: "PidevReaBundle:Demandemaison:new" }
+
+demandemaison_create:
+    path:     /create
+    defaults: { _controller: "PidevReaBundle:Demandemaison:create" }
+    requirements: { _method: post }
+
+demandemaison_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PidevReaBundle:Demandemaison:edit" }
+
+demandemaison_update:
+    path:     /{id}/update
+    defaults: { _controller: "PidevReaBundle:Demandemaison:update" }
+    requirements: { _method: post|put }
+
+demandemaison_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PidevReaBundle:Demandemaison:delete" }
+    requirements: { _method: post|delete }

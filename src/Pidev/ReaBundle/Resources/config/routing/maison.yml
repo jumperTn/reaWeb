@@ -1,0 +1,30 @@
+maison:
+    path:     /
+    defaults: { _controller: "PidevReaBundle:Maison:index" }
+
+maison_show:
+    path:     /{id}/show
+    defaults: { _controller: "PidevReaBundle:Maison:show" }
+
+maison_new:
+    path:     /new
+    defaults: { _controller: "PidevReaBundle:Maison:new" }
+
+maison_create:
+    path:     /create
+    defaults: { _controller: "PidevReaBundle:Maison:create" }
+    requirements: { _method: post }
+
+maison_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PidevReaBundle:Maison:edit" }
+
+maison_update:
+    path:     /{id}/update
+    defaults: { _controller: "PidevReaBundle:Maison:update" }
+    requirements: { _method: post|put }
+
+maison_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PidevReaBundle:Maison:delete" }
+    requirements: { _method: post|delete }

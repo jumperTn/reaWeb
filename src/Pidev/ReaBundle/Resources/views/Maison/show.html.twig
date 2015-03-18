@@ -1,0 +1,84 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Maison</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Nbrchambre</th>
+                <td>{{ entity.nbrchambre }}</td>
+            </tr>
+            <tr>
+                <th>Nbrsalledebain</th>
+                <td>{{ entity.nbrsalledebain }}</td>
+            </tr>
+            <tr>
+                <th>Nbrcuisine</th>
+                <td>{{ entity.nbrcuisine }}</td>
+            </tr>
+            <tr>
+                <th>Nbrsallon</th>
+                <td>{{ entity.nbrsallon }}</td>
+            </tr>
+            <tr>
+                <th>Nbrsuite</th>
+                <td>{{ entity.nbrsuite }}</td>
+            </tr>
+            <tr>
+                <th>Nbretage</th>
+                <td>{{ entity.nbretage }}</td>
+            </tr>
+            <tr>
+                <th>Surfacehabitale</th>
+                <td>{{ entity.surfacehabitale }}</td>
+            </tr>
+            <tr>
+                <th>Terrasse</th>
+                <td>{{ entity.terrasse }}</td>
+            </tr>
+            <tr>
+                <th>Picine</th>
+                <td>{{ entity.picine }}</td>
+            </tr>
+            <tr>
+                <th>Garage</th>
+                <td>{{ entity.garage }}</td>
+            </tr>
+            <tr>
+                <th>Balcon</th>
+                <td>{{ entity.balcon }}</td>
+            </tr>
+            <tr>
+                <th>Meuble</th>
+                <td>{{ entity.meuble }}</td>
+            </tr>
+            <tr>
+                <th>Chauffage</th>
+                <td>{{ entity.chauffage }}</td>
+            </tr>
+            <tr>
+                <th>Climatisation</th>
+                <td>{{ entity.climatisation }}</td>
+            </tr>
+            <tr>
+                <th>Parking</th>
+                <td>{{ entity.parking }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('maison') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('maison_edit', { 'id': entity.idoffre }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

@@ -128,20 +128,6 @@ class Offre
      */
     private $idclient1;
 
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="Utilisateur", mappedBy="idoffre")
-     */
-    private $idutilisateur;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->idutilisateur = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
 
     /**
@@ -475,37 +461,12 @@ class Offre
     {
         return $this->idclient1;
     }
-
-    /**
-     * Add idutilisateur
-     *
-     * @param \Pidev\ReaBundle\Entity\Utilisateur $idutilisateur
-     * @return Offre
-     */
-    public function addIdutilisateur(\Pidev\ReaBundle\Entity\Utilisateur $idutilisateur)
-    {
-        $this->idutilisateur[] = $idutilisateur;
-
-        return $this;
-    }
-
-    /**
-     * Remove idutilisateur
-     *
-     * @param \Pidev\ReaBundle\Entity\Utilisateur $idutilisateur
-     */
-    public function removeIdutilisateur(\Pidev\ReaBundle\Entity\Utilisateur $idutilisateur)
-    {
-        $this->idutilisateur->removeElement($idutilisateur);
-    }
-
-    /**
-     * Get idutilisateur
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getIdutilisateur()
-    {
-        return $this->idutilisateur;
-    }
+        public function __toString()
+{
+     try {
+return (string) $this->id;
+} catch (Exception $exception) {
+return '';
+} 
+}
 }

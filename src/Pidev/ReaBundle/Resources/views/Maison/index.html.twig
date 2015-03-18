@@ -1,0 +1,67 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Maison list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Nbrchambre</th>
+                <th>Nbrsalledebain</th>
+                <th>Nbrcuisine</th>
+                <th>Nbrsallon</th>
+                <th>Nbrsuite</th>
+                <th>Nbretage</th>
+                <th>Surfacehabitale</th>
+                <th>Terrasse</th>
+                <th>Picine</th>
+                <th>Garage</th>
+                <th>Balcon</th>
+                <th>Meuble</th>
+                <th>Chauffage</th>
+                <th>Climatisation</th>
+                <th>Parking</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('maison_show', { 'id': entity.idoffre }) }}">{{ entity.nbrchambre }}</a></td>
+                <td>{{ entity.nbrsalledebain }}</td>
+                <td>{{ entity.nbrcuisine }}</td>
+                <td>{{ entity.nbrsallon }}</td>
+                <td>{{ entity.nbrsuite }}</td>
+                <td>{{ entity.nbretage }}</td>
+                <td>{{ entity.surfacehabitale }}</td>
+                <td>{{ entity.terrasse }}</td>
+                <td>{{ entity.picine }}</td>
+                <td>{{ entity.garage }}</td>
+                <td>{{ entity.balcon }}</td>
+                <td>{{ entity.meuble }}</td>
+                <td>{{ entity.chauffage }}</td>
+                <td>{{ entity.climatisation }}</td>
+                <td>{{ entity.parking }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('maison_show', { 'id': entity.idoffre }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('maison_edit', { 'id': entity.idoffre }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('maison_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

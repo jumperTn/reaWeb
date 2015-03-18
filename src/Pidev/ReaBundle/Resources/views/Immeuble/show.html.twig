@@ -1,0 +1,32 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Immeuble</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Nbretage</th>
+                <td>{{ entity.nbretage }}</td>
+            </tr>
+            <tr>
+                <th>Nbrappartement</th>
+                <td>{{ entity.nbrappartement }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('immeuble') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('immeuble_edit', { 'id': entity.idoffre }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

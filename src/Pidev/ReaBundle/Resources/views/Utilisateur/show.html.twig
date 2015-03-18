@@ -1,0 +1,68 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Utilisateur</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ entity.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ entity.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Cin</th>
+                <td>{{ entity.cin }}</td>
+            </tr>
+            <tr>
+                <th>Mail</th>
+                <td>{{ entity.mail }}</td>
+            </tr>
+            <tr>
+                <th>Nomutilisateur</th>
+                <td>{{ entity.nomutilisateur }}</td>
+            </tr>
+            <tr>
+                <th>Motpasse</th>
+                <td>{{ entity.motpasse }}</td>
+            </tr>
+            <tr>
+                <th>Role</th>
+                <td>{{ entity.role }}</td>
+            </tr>
+            <tr>
+                <th>Datecreation</th>
+                <td>{{ entity.datecreation|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Datemodification</th>
+                <td>{{ entity.datemodification|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Numtel</th>
+                <td>{{ entity.numtel }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('utilisateur') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('utilisateur_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}
