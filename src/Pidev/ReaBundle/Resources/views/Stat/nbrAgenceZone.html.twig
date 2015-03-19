@@ -1,0 +1,24 @@
+{# empty Twig template #}
+ {#{% for stat in stats %}
+     {{ stat.secteur }} {{ stat.nbr }}
+     <br>
+{% endfor %}
+#}
+ {% extends 'PidevReaBundle:Stat/chart:chart.html.twig' %}
+ {% block test %}
+     {% set test = 1 %}
+     {% for stat in stats %}
+    {% if test==1 %}
+         {   
+     "nomAgence": "{{ stat.secteur }}",
+         "nbrAgence": {{ stat.nbr }}
+         }
+    {% set test = 2 %}
+      {%else %}   
+         ,{   
+     "nomAgence": "{{ stat.secteur }}",
+         "nbrAgence": {{ stat.nbr }}
+         }
+         {% endif %}
+         {% endfor %}
+     {%endblock %}

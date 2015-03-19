@@ -95,3 +95,6 @@ pidev_rea_zone1:
 pidev_rea_homepage:
     path:     /hello/{name}
     defaults: { _controller: PidevReaBundle:Default:index }
+pidev_rea_stat:
+    path:     /stat
+    defaults: { _controller: PidevReaBundle:Stat:test }

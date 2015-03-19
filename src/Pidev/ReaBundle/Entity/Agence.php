@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Agence
  *
  * @ORM\Table(name="agence")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Pidev\ReaBundle\Entity\StatRepository")
  */
 class Agence
 {
