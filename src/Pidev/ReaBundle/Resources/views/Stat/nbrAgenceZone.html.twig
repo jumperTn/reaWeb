@@ -1,10 +1,4 @@
-{# empty Twig template #}
- {#{% for stat in stats %}
-     {{ stat.secteur }} {{ stat.nbr }}
-     <br>
-{% endfor %}
-#}
- {% extends 'PidevReaBundle:Stat/chart:chart.html.twig' %}
+ {% extends 'PidevReaBundle:Stat/chart:battonetChart.html.twig' %}
  {% block test %}
      {% set test = 1 %}
      {% for stat in stats %}

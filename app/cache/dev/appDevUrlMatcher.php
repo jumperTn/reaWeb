@@ -1524,9 +1524,17 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'pidev_rea_homepage')), array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\DefaultController::indexAction',));
         }
 
-        // pidev_rea_stat
-        if ($pathinfo === '/stat') {
-            return array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\StatController::testAction',  '_route' => 'pidev_rea_stat',);
+        if (0 === strpos($pathinfo, '/stat')) {
+            // agenceZone
+            if ($pathinfo === '/stat/agenceZone') {
+                return array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\StatController::agenceZoneAction',  '_route' => 'agenceZone',);
+            }
+
+            // nbrInscritMois
+            if ($pathinfo === '/stat/nbrInscritMois') {
+                return array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\StatController::nbrInscritMoisAction',  '_route' => 'nbrInscritMois',);
+            }
+
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();

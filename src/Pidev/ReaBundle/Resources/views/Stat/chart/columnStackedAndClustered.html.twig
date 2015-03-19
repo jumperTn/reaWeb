@@ -1,0 +1,218 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>amCharts examples</title>
+        <link rel="stylesheet" href="style.css" type="text/css">
+        <script src="{{asset('amcharts/amcharts.js')}}" type="text/javascript"></script>
+        <script src="{{asset('amcharts/serial.js')}}" type="text/javascript"></script>
+
+        <script type="text/javascript">
+            var chart;
+
+            var chartData = [
+            {% block stat %}
+               
+                {% endblock %}
+            ];
+
+            AmCharts.ready(function () {
+                // SERIAL CHART
+                chart = new AmCharts.AmSerialChart();
+                chart.dataProvider = chartData;
+                chart.categoryField = "year";
+                chart.plotAreaBorderAlpha = 0.2;
+
+                // AXES
+                // category
+                var categoryAxis = chart.categoryAxis;
+                categoryAxis.gridAlpha = 0.1;
+                categoryAxis.axisAlpha = 0;
+                categoryAxis.gridPosition = "start";
+
+                // value
+                var valueAxis = new AmCharts.ValueAxis();
+                valueAxis.stackType = "regular";
+                valueAxis.gridAlpha = 0.1;
+                valueAxis.axisAlpha = 0;
+                chart.addValueAxis(valueAxis);
+
+                // GRAPHS
+                // first graph
+                var graph = new AmCharts.AmGraph();
+        //*/        
+                {% block graph %}
+        graph.title = "janvier";
+                graph.labelText = "[[value]]";
+                graph.valueField = "01";
+                graph.type = "column";
+                graph.lineAlpha = 0;
+                graph.fillAlphas = 1;
+                graph.lineColor = "#C72C95";
+                graph.balloonText = "<span style='color:#555555;'>[[category]]</span><br><span style='font-size:14px'>[[title]]:<b>[[value]]</b></span>";
+                chart.addGraph(graph);
+
+                // second graph
+                graph = new AmCharts.AmGraph();
+                graph.title = "février";
+                graph.labelText = "[[value]]";
+                graph.valueField = "02";
+                graph.type = "column";
+                graph.lineAlpha = 0;
+                graph.fillAlphas = 1;
+                graph.lineColor = "#D8E0BD";
+                graph.balloonText = "<span style='color:#555555;'>[[category]]</span><br><span style='font-size:14px'>[[title]]:<b>[[value]]</b></span>";
+                chart.addGraph(graph);
+//*/
+                // third graph
+                graph = new AmCharts.AmGraph();
+                graph.title = "mars";
+                graph.labelText = "[[value]]";
+                graph.valueField = "03";
+                graph.type = "column";
+                graph.lineAlpha = 0;
+                graph.fillAlphas = 1;
+                graph.lineColor = "#B3DBD4";
+                graph.balloonText = "<span style='color:#555555;'>[[category]]</span><br><span style='font-size:14px'>[[title]]:<b>[[value]]</b></span>";
+                chart.addGraph(graph);
+
+                // fourth graph
+                graph = new AmCharts.AmGraph();
+                graph.title = "avril";
+                graph.labelText = "[[value]]";
+                graph.valueField = "04";
+                graph.type = "column";
+                graph.lineAlpha = 0;
+                graph.newStack = true; // this line starts new stack
+                graph.fillAlphas = 1;
+                graph.lineColor = "#69A55C";
+                graph.balloonText = "<span style='color:#555555;'>[[category]]</span><br><span style='font-size:14px'>[[title]]:<b>[[value]]</b></span>";
+                chart.addGraph(graph);
+
+                // fifth graph
+                graph = new AmCharts.AmGraph();
+                graph.title = "may";
+                graph.labelText = "[[value]]";
+                graph.valueField = "05";
+                graph.type = "column";
+                graph.lineAlpha = 0;
+                graph.fillAlphas = 1;
+                graph.lineColor = "#B5B8D3";
+                graph.balloonText = "<span style='color:#555555;'>[[category]]</span><br><span style='font-size:14px'>[[title]]:<b>[[value]]</b></span>";
+                chart.addGraph(graph);
+
+                // sixth graph
+                graph = new AmCharts.AmGraph();
+                graph.title = "juin";
+                graph.labelText = "[[value]]";
+                graph.valueField = "06";
+                graph.type = "column";
+                graph.lineAlpha = 0;
+                graph.fillAlphas = 1;
+                graph.lineColor = "#F4E23B";
+                graph.balloonText = "<span style='color:#555555;'>[[category]]</span><br><span class='font-size:14px'>[[title]]:<b>[[value]]</b></span>";
+                chart.addGraph(graph);
+                
+                graph = new AmCharts.AmGraph();
+                graph.title = "juillet";
+                graph.labelText = "[[value]]";
+                graph.valueField = "07";
+                graph.type = "column";
+                graph.lineAlpha = 0;
+                        graph.newStack = true; // this line starts new stack        
+        graph.fillAlphas = 1;
+                graph.lineColor = "#F4E00B";
+                graph.balloonText = "<span style='color:#555555;'>[[category]]</span><br><span class='font-size:14px'>[[title]]:<b>[[value]]</b></span>";
+                chart.addGraph(graph);
+
+                
+        graph = new AmCharts.AmGraph();
+                graph.title = "août";
+                graph.labelText = "[[value]]";
+                graph.valueField = "08";
+                graph.type = "column";
+                graph.lineAlpha = 0;
+                graph.fillAlphas = 1;
+                graph.lineColor = "#F4E90B";
+                graph.balloonText = "<span style='color:#555555;'>[[category]]</span><br><span class='font-size:14px'>[[title]]:<b>[[value]]</b></span>";
+                chart.addGraph(graph);
+                
+                graph = new AmCharts.AmGraph();
+                graph.title = "septembre";
+                graph.labelText = "[[value]]";
+                graph.valueField = "09";
+                graph.type = "column";
+                graph.lineAlpha = 0;
+                graph.fillAlphas = 1;
+                graph.lineColor = "#F4EBBB";
+        
+        graph.balloonText = "<span style='color:#555555;'>[[category]]</span><br><span class='font-size:14px'>[[title]]:<b>[[value]]</b></span>";
+                chart.addGraph(graph);
+
+graph = new AmCharts.AmGraph();
+                graph.title = "octobre";
+                graph.labelText = "[[value]]";
+                graph.valueField = "10";
+                        graph.newStack = true; // this line starts new stack
+        graph.type = "column";
+                graph.lineAlpha = 0;
+                graph.fillAlphas = 1;
+                graph.lineColor = "#F4ECCB";
+                graph.balloonText = "<span style='color:#555555;'>[[category]]</span><br><span class='font-size:14px'>[[title]]:<b>[[value]]</b></span>";
+                chart.addGraph(graph);
+                
+                graph = new AmCharts.AmGraph();
+                graph.title = "novembre";
+                graph.labelText = "[[value]]";
+                graph.valueField = "11";
+                graph.type = "column";
+                graph.lineAlpha = 0;
+                graph.fillAlphas = 1;
+                graph.lineColor = "#44E00B";
+                graph.balloonText = "<span style='color:#555555;'>[[category]]</span><br><span class='font-size:14px'>[[title]]:<b>[[value]]</b></span>";
+                chart.addGraph(graph);
+
+graph = new AmCharts.AmGraph();
+                graph.title = "décembre";
+                graph.labelText = "[[value]]";
+                graph.valueField = "12";
+                graph.type = "column";
+                graph.lineAlpha = 0;
+                graph.fillAlphas = 1;
+                graph.lineColor = "#F4E4FB";
+                graph.balloonText = "<span style='color:#555555;'>[[category]]</span><br><span class='font-size:14px'>[[title]]:<b>[[value]]</b></span>";
+                chart.addGraph(graph);
+                    {% endblock %}
+        // LEGEND
+                var legend = new AmCharts.AmLegend();
+                legend.borderAlpha = 0.2;
+               //legend.horizontalGap = 10;
+                chart.addLegend(legend);
+
+                // WRITE
+                chart.write("chartdiv");
+            });
+
+            // this method sets chart 2D/3D
+            function setDepth() {
+                if (document.getElementById("rb1").checked) {
+                    chart.depth3D = 0;
+                    chart.angle = 0;
+                } else {
+                    chart.depth3D = 25;
+                    chart.angle = 30;
+                }
+                chart.validateNow();
+            }
+        </script>
+    </head>
+
+    <body>
+        <div id="chartdiv" style="width: 600px; height: 400px;"></div>
+        <div style="margin-left:30px;">
+	        <input type="radio" checked="true" name="group" id="rb1" onclick="setDepth()">2D
+	        <input type="radio" name="group" id="rb2" onclick="setDepth()">3D
+		</div>
+    </body>
+</html>

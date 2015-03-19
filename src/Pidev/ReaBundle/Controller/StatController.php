@@ -5,7 +5,6 @@ namespace Pidev\ReaBundle\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use Pidev\ReaBundle\Entity\Agence;
 
 /**
  * Agence controller.
@@ -14,11 +13,17 @@ use Pidev\ReaBundle\Entity\Agence;
 class StatController extends Controller
 {
 
-    public function testAction()
+    public function agenceZoneAction()
     {
     $em = $this->getDoctrine()->getManager();
-    $stat= $em->getRepository("PidevReaBundle:Agence")->nbrAgence();
-     return $this->render("PidevReaBundle:Stat:nbrAgenceZone.html.twig", array('stats' => $stat));
+    $stats= $em->getRepository("PidevReaBundle:Agence")->nbrAgence();
+     return $this->render("PidevReaBundle:Stat:nbrAgenceZone.html.twig", array('stats' => $stats));
+    }
+    public function nbrInscritMoisAction()
+    {
+    $em = $this->getDoctrine()->getManager();
+    $stats= $em->getRepository("PidevReaBundle:Agence")->nbrInscritMois();
+     return $this->render("PidevReaBundle:Stat:nbrInscritMois.html.twig", array('stats' => $stats));
     }
 
 }

@@ -1,0 +1,7 @@
+agenceZone:
+    path:     /agenceZone
+    defaults: { _controller: PidevReaBundle:Stat:agenceZone }
+nbrInscritMois:
+    path:     /nbrInscritMois
+    defaults: { _controller: PidevReaBundle:Stat:nbrInscritMois }
+
