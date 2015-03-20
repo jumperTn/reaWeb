@@ -1,18 +1,18 @@
- {% extends 'PidevReaBundle:Stat/chart:battonetChart.html.twig' %}
- {% block test %}
-     {% set test = 1 %}
-     {% for stat in stats %}
-    {% if test==1 %}
-         {   
-     "nomAgence": "{{ stat.secteur }}",
-         "nbrAgence": {{ stat.nbr }}
-         }
-    {% set test = 2 %}
-      {%else %}   
-         ,{   
-     "nomAgence": "{{ stat.secteur }}",
-         "nbrAgence": {{ stat.nbr }}
-         }
-         {% endif %}
-         {% endfor %}
-     {%endblock %}
+{% extends 'PidevReaBundle:Stat/chart:battonetChart.html.twig' %}
+{% block test %}
+    {% set test = 1 %}
+    {% for stat in stats %}
+        {% if test==1 %}
+            {   
+            "nomAgence": "{{ stat.secteur }}",
+            "nbrAgence": {{ stat.nbr }}
+            }
+            {% set test = 2 %}
+        {%else %}   
+            ,{   
+            "nomAgence": "{{ stat.secteur }}",
+            "nbrAgence": {{ stat.nbr }}
+            }
+        {% endif %}
+    {% endfor %}
+{%endblock %}

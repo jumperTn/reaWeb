@@ -1530,9 +1530,17 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\StatController::agenceZoneAction',  '_route' => 'agenceZone',);
             }
 
-            // nbrInscritMois
-            if ($pathinfo === '/stat/nbrInscritMois') {
-                return array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\StatController::nbrInscritMoisAction',  '_route' => 'nbrInscritMois',);
+            if (0 === strpos($pathinfo, '/stat/nbr')) {
+                // nbrInscritMois
+                if ($pathinfo === '/stat/nbrInscritMois') {
+                    return array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\StatController::nbrInscritMoisAction',  '_route' => 'nbrInscritMois',);
+                }
+
+                // nbrOffreClientAgence
+                if (0 === strpos($pathinfo, '/stat/nbrOffreClientAgence') && preg_match('#^/stat/nbrOffreClientAgence/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'nbrOffreClientAgence')), array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\StatController::nbrOffreClientAgenceAction',));
+                }
+
             }
 
         }

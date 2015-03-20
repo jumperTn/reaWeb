@@ -4,4 +4,6 @@ agenceZone:
 nbrInscritMois:
     path:     /nbrInscritMois
     defaults: { _controller: PidevReaBundle:Stat:nbrInscritMois }
-
+nbrOffreClientAgence:
+    path:     /nbrOffreClientAgence/{id}
+    defaults: { _controller: PidevReaBundle:Stat:nbrOffreClientAgence }

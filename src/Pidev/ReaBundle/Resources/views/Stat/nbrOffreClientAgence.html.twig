@@ -1,0 +1,103 @@
+{% extends 'PidevReaBundle:Stat/chart:column3dStacked.html.twig' %}
+{%block stat %}
+   {#
+    {
+                    "client": "USA",
+                    "terrain": 3.5,
+                    "maison": 4.2,
+                    "immeuble": 14.2
+                },
+                {
+                    "client": "UK",
+                    "terrain": 1.7,
+                    "maison": 3.1,
+                    "immeuble": 14.2
+                },
+                {
+                    "client": "Canada",
+                    "terrain": 2.8,
+                    "maison": 2.9,
+                    "immeuble": 14.2
+                },
+                {
+                    "client": "Japan",
+                    "terrain": 2.6,
+                    "maison": 2.3,
+                    "immeuble": 14.2
+                },
+                {
+                    "client": "France",
+                    "terrain": 1.4,
+                    "maison": 2.1,
+                    "immeuble": 14.2
+                },
+                {
+                    "client": "Brazil",
+                    "terrain": 2.6,
+                    "maison": 4.9,
+                },
+                {
+                    "client": "Russia",
+                    "terrain": 6.4,
+                    "maison": 7.2,
+                    "immeuble": 14.2,
+                    "appartement": 14.2
+                },
+                {
+                    "client": "India",
+                    "terrain": 8,
+                    "maison": 7.1,
+                    "immeuble": 11.2,
+                    "appartement": 14.2
+                },
+                {
+                    "client": "India1",
+                    "terrain": 8,
+                    "maison": 7.1,
+                    "immeuble": 14.2
+                },
+                {
+                    "client": "India",
+                    "terrain": 8,
+                    "maison": 7.1,
+                    "immeuble": 14.2
+                },
+                {
+                    "client": "China",
+                    "terrain": 9.9,
+                    "maison": 10.1,
+                    "immeuble": 14.2
+                }
+   #}
+{% set client = "" %}
+{% set test = 1 %}
+{% for stat in stats %}
+     {% if test !=1%}
+    {% if client !=stat["prenom"] %}
+        },{
+        "client":"{{stat["prenom"]}}" ,
+        "{{stat["type"]}}":{{stat["nbr"]}},
+    {% set client =stat["prenom"] %}
+    {% else %}
+     "{{stat["type"]}}":{{stat["nbr"]}},
+    {% endif %}
+    {% else %}
+        {% set test = 2 %}
+            {% if  client !=stat["prenom"] %}
+        {
+        "client":"{{stat["prenom"]}}" ,
+         "{{stat["type"]}}":{{stat["nbr"]}},
+    {% set client =stat["prenom"] %}
+    {% else %}
+     "{{stat["type"]}}":{{stat["nbr"]}},
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+    }
+    {%endblock %}
+{#
+{% for stat in stats %}
+    {{stat["nbr"]}}:{{stat["type"]}}:{{stat["prenom"]}}
+    <br>
+    {% endfor %}
+    #}
