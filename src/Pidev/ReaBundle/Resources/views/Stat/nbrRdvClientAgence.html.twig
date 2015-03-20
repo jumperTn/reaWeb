@@ -1,0 +1,52 @@
+{% extends 'PidevReaBundle:Stat/chart:SVG_filters.html.twig' %}
+
+{%block stat %}
+    {#
+            {
+                 "mois": "jjjj",
+                     "cars": 1098,
+                     "bicycles": 1098
+             }, {
+                 "mois": "3jjkj",
+                     "cars": 975,
+                     "bicycles": 975
+             }, {
+                 "mois": 4,
+                     "cars": 1246,
+                     "bicycles": 1246
+             }, {
+                 "mois": 5,
+                     "cars": 1218,
+                     "bicycles": 1218
+             }, {
+                 "mois": 6,
+                     "cars": 1913,
+                     "bicycles": 1913
+             }, {
+                 "mois": 7,
+                     "cars": 1299,
+                     "bicycles": 1299
+             }, {
+                 "mois": 8,
+                     "cars": 1110,
+                     "bicycles": 1110
+             }
+             #}
+        {% set test = 1 %}
+    {% for stat in stats %}
+        {% if test==1 %}
+            {   
+            "client": "{{ stat["prenom"] }}",
+            "nbrRdv": {{ stat["nbr"] }},
+            "nbrRdv1": {{ stat["nbr"]}}
+            }
+            {% set test = 2 %}
+        {%else %}   
+            ,{   
+            "client": "{{ stat["prenom"] }}",
+            "nbrRdv": {{ stat["nbr"] }},
+            "nbrRdv1": {{ stat["nbr"] }}
+            }
+        {% endif %}
+    {% endfor %}
+             {%endblock%}

@@ -1548,6 +1548,27 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'nbrOffreAgence')), array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\StatController::offreAgenceAction',));
             }
 
+            if (0 === strpos($pathinfo, '/stat/nbr')) {
+                if (0 === strpos($pathinfo, '/stat/nbrRdv')) {
+                    // nbrRdvClientAgence
+                    if (0 === strpos($pathinfo, '/stat/nbrRdvClientAgence') && preg_match('#^/stat/nbrRdvClientAgence/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'nbrRdvClientAgence')), array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\StatController::nbrRdvClientAgenceAction',));
+                    }
+
+                    // nbrRdvAgentAgence
+                    if (0 === strpos($pathinfo, '/stat/nbrRdvAgentAgence') && preg_match('#^/stat/nbrRdvAgentAgence/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'nbrRdvAgentAgence')), array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\StatController::nbrRdvAgentAgenceAction',));
+                    }
+
+                }
+
+                // nbrOperationClientAgence
+                if (0 === strpos($pathinfo, '/stat/nbrOperationClientAgence') && preg_match('#^/stat/nbrOperationClientAgence/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'nbrOperationClientAgence')), array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\StatController::nbrOperationClientAgenceAction',));
+                }
+
+            }
+
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();

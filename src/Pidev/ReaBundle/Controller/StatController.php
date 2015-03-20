@@ -36,4 +36,22 @@ public function offreAgenceAction($id)
     $stats= $em->getRepository("PidevReaBundle:Agence")->offreAgence($id);
     return $this->render("PidevReaBundle:Stat:offreAgence.html.twig", array('stats' => $stats));
     }
+public function nbrRdvClientAgenceAction($id)
+    {
+    $em = $this->getDoctrine()->getManager();
+    $stats= $em->getRepository("PidevReaBundle:Agence")->nbrRdvClientAgence($id);
+    return $this->render("PidevReaBundle:Stat:nbrRdvClientAgence.html.twig", array('stats' => $stats));
+    }
+public function nbrRdvAgentAgenceAction($id)
+    {
+    $em = $this->getDoctrine()->getManager();
+    $stats= $em->getRepository("PidevReaBundle:Agence")->nbrRdvAgenttAgence($id);
+    return $this->render("PidevReaBundle:Stat:nbrRdvAgentAgence.html.twig", array('stats' => $stats));
+    }
+public function nbrOperationClientAgenceAction($id)
+    {
+    $em = $this->getDoctrine()->getManager();
+    $stats= $em->getRepository("PidevReaBundle:Agence")->nbrOperationClientAgence($id);
+    return $this->render("PidevReaBundle:Stat:nbrOperationClientAgence.html.twig", array('stats' => $stats));
+    }
 }

@@ -10,6 +10,7 @@ class __TwigTemplate_2e3f62179ddd279803bff11db1ccbee3d3d78e7fa040d1dd63048a9c30f
         $this->parent = false;
 
         $this->blocks = array(
+            'stat' => array($this, 'block_stat'),
         );
     }
 
@@ -53,63 +54,12 @@ class __TwigTemplate_2e3f62179ddd279803bff11db1ccbee3d3d78e7fa040d1dd63048a9c30f
 
         <script type=\"text/javascript\">
 
-            var chartData = [{
-                 \"mois\": 2,
-                     \"cars\": 1098,
-                     \"motorcycles\": 680,
-                     \"bicycles\": 910
-             }, {
-                 \"mois\": 3,
-                     \"cars\": 975,
-                     \"motorcycles\": 664,
-                     \"bicycles\": 670
-             }, {
-                 \"mois\": 4,
-                     \"cars\": 1246,
-                     \"motorcycles\": 648,
-                     \"bicycles\": 930
-             }, {
-                 \"mois\": 5,
-                     \"cars\": 1218,
-                     \"motorcycles\": 637,
-                     \"bicycles\": 1010
-             }, {
-                 \"mois\": 6,
-                     \"cars\": 1913,
-                     \"motorcycles\": 133,
-                     \"bicycles\": 1770
-             }, {
-                 \"mois\": 7,
-                     \"cars\": 1299,
-                     \"motorcycles\": 621,
-                     \"bicycles\": 820
-             }, {
-                 \"mois\": 8,
-                     \"cars\": 1110,
-                     \"motorcycles\": 10,
-                     \"bicycles\": 1050
-             }, {
-                 \"mois\": 9,
-                     \"cars\": 765,
-                     \"motorcycles\": 232,
-                     \"bicycles\": 650
-             }, {
-                 \"mois\": 10,
-                     \"cars\": 1145,
-                     \"motorcycles\": 219,
-                     \"bicycles\": 780
-             }, {
-                 \"mois\": 11,
-                     \"cars\": 1163,
-                     \"motorcycles\": 201,
-                     \"bicycles\": 700
-             }, {
-                 \"mois\": 12,
-                     \"cars\": 1780,
-                     \"motorcycles\": 85,
-                     \"bicycles\": 1470
-             }
-             ];
+            var chartData = [
+            ";
+        // line 30
+        $this->displayBlock('stat', $context, $blocks);
+        // line 32
+        echo "             ];
 
               var chart =  AmCharts.makeChart(\"chartdiv\", {
                   \"type\": \"serial\",
@@ -160,23 +110,20 @@ class __TwigTemplate_2e3f62179ddd279803bff11db1ccbee3d3d78e7fa040d1dd63048a9c30f
                   },
                   \"fontSize\": 15,
                   \"pathToImages\": \"";
-        // line 135
+        // line 82
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("amcharts/images/"), "html", null, true);
         echo "\",
                   \"dataProvider\": chartData,
-                  \"dataDateFormat\": \"MM\",
                   \"marginTop\": 0,
                   \"marginRight\": 0,
                   \"marginLeft\": 0,
                   \"autoMarginOffset\": 0,
-                  \"categoryField\": \"mois\",
+                  \"categoryField\": \"client\",
                   \"categoryAxis\": {
                       \"gridAlpha\": 0.07,
                       \"axisColor\": \"#DADADA\",
                       \"startOnAxis\": true,
-                      \"tickLength\": 0,
-                      \"parseDates\": true,
-                      \"minPeriod\": \"MM\"
+                      \"tickLength\": 0
                   },
                   \"valueAxes\": [
                       {
@@ -191,8 +138,8 @@ class __TwigTemplate_2e3f62179ddd279803bff11db1ccbee3d3d78e7fa040d1dd63048a9c30f
                       {
                           \"id\": \"g1\",
                           \"type\": \"line\",
-                          \"title\": \"Cars\",
-                          \"valueField\": \"cars\",
+                          \"title\": \"nbrRdv\",
+                          \"valueField\": \"nbrRdv\",
                           \"fillColors\": [
                               \"#0066e3\",
                               \"#802ea9\"
@@ -201,20 +148,11 @@ class __TwigTemplate_2e3f62179ddd279803bff11db1ccbee3d3d78e7fa040d1dd63048a9c30f
                           \"fillAlphas\": 0.8,
                           \"showBalloon\": false
                       },
-                      {
-                          \"id\": \"g2\",
-                          \"type\": \"line\",
-                          \"title\": \"Motorcycles\",
-                          \"valueField\": \"motorcycles\",
-                          \"lineAlpha\": 0,
-                          \"fillAlphas\": 0.8,
-                          \"lineColor\": \"#5bb5ea\",
-                          \"showBalloon\": false
-                      },
+                      
                       {
                           \"id\": \"g3\",
-                          \"title\": \"Bicycles\",
-                          \"valueField\": \"bicycles\",
+                          \"title\": \"nbrRdv\",
+                          \"valueField\": \"nbrRdv1\",
                           \"lineAlpha\": 0.5,
                           \"lineColor\": \"#FFFFFF\",
                           \"bullet\": \"round\",
@@ -226,6 +164,7 @@ class __TwigTemplate_2e3f62179ddd279803bff11db1ccbee3d3d78e7fa040d1dd63048a9c30f
                           \"bulletColor\": \"#5d7ad9\",
                           \"bulletBorderColor\": \"#FFFFFF\",
                           \"bulletBorderThickness\": 3,
+                          \"showBalloon\": true,
                           \"balloonText\": \"<div style='margin-bottom:30px;text-shadow: 2px 2px rgba(0, 0, 0, 0.1); font-weight:200;font-size:30px; color:#ffffff'>[[value]]</div>\"
                       }
                   ],
@@ -235,7 +174,6 @@ class __TwigTemplate_2e3f62179ddd279803bff11db1ccbee3d3d78e7fa040d1dd63048a9c30f
                       \"cursorColor\": \"#FFFFFF\",
                       \"categoryBalloonColor\": \"#8d83c8\",
                       \"fullWidth\": true,
-                      \"categoryBalloonDateFormat\": \"MM\",
                       \"balloonPointerOrientation\": \"vertical\"
                   },
                   \"balloon\": {
@@ -251,7 +189,7 @@ class __TwigTemplate_2e3f62179ddd279803bff11db1ccbee3d3d78e7fa040d1dd63048a9c30f
               chart.addListener(\"dataUpdated\", zoomChart);
 
               function zoomChart(){
-                  chart.zoomToIndexes(0, chartData.length-1);
+                  chart.zoomToIndexes(0, chartData.length+1);
               }
             </script>
         </head>
@@ -261,6 +199,13 @@ class __TwigTemplate_2e3f62179ddd279803bff11db1ccbee3d3d78e7fa040d1dd63048a9c30f
         </body>
 
 </html>";
+    }
+
+    // line 30
+    public function block_stat($context, array $blocks = array())
+    {
+        echo "        
+                ";
     }
 
     public function getTemplateName()
@@ -275,6 +220,6 @@ class __TwigTemplate_2e3f62179ddd279803bff11db1ccbee3d3d78e7fa040d1dd63048a9c30f
 
     public function getDebugInfo()
     {
-        return array (  164 => 135,  38 => 12,  32 => 9,  28 => 8,  19 => 1,);
+        return array (  205 => 30,  114 => 82,  62 => 32,  60 => 30,  39 => 12,  33 => 9,  29 => 8,  20 => 1,);
     }
 }

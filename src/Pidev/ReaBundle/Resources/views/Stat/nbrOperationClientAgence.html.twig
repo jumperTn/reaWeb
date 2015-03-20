@@ -1,0 +1,48 @@
+{% extends 'PidevReaBundle:Stat/chart:pyramidChart3D.html.twig' %}
+{%block stat %}
+    {#        
+    {
+                    "client": "Website visits",
+                    "value": 200
+                },
+                {
+                    "client": "Downloads",
+                    "value": 123
+                },
+                {
+                    "client": "Requested price list",
+                    "value": 98
+                },
+                {
+                    "client": "Contaced for more info",
+                    "value": 72
+                },
+                {
+                    "client": "Purchased",
+                    "value": 65
+                },
+                {
+                    "client": "Contacted for support",
+                    "value": 45
+                },
+                {
+                    "client": "Purchased additional products",
+                    "value": 36
+                }
+                #}
+        {% set test = 1 %}
+    {% for stat in stats %}
+        {% if test==1 %}
+            {   
+            "client": "{{ stat["prenom"]}}",
+            "value": {{ stat["nbr"] }}
+            }
+            {% set test = 2 %}
+        {%else %}   
+            ,{   
+            "client": "{{ stat["prenom"] }}",
+            "value": {{ stat["nbr"] }}
+            }
+        {% endif %}
+    {% endfor %}
+    {% endblock %}

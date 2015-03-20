@@ -1,0 +1,22 @@
+{% extends 'PidevReaBundle:Stat/chart:SVG_filters.html.twig' %}
+
+{%block stat %}
+   
+        {% set test = 1 %}
+    {% for stat in stats %}
+        {% if test==1 %}
+            {   
+            "client": "{{ stat["prenom"] }}",
+            "nbrRdv": {{ stat["nbr"] }},
+            "nbrRdv1": {{ stat["nbr"]}}
+            }
+            {% set test = 2 %}
+        {%else %}   
+            ,{   
+            "client": "{{ stat["prenom"] }}",
+            "nbrRdv": {{ stat["nbr"] }},
+            "nbrRdv1": {{ stat["nbr"] }}
+            }
+        {% endif %}
+    {% endfor %}
+             {%endblock%}

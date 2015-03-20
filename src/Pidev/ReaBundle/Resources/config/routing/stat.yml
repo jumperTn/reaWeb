@@ -10,3 +10,12 @@ nbrOffreClientAgence:
 nbrOffreAgence:
     path:     /offreAgence/{id}
     defaults: { _controller: PidevReaBundle:Stat:offreAgence }
+nbrRdvClientAgence:
+    path:     /nbrRdvClientAgence/{id}
+    defaults: { _controller: PidevReaBundle:Stat:nbrRdvClientAgence }
+nbrRdvAgentAgence:
+    path:     /nbrRdvAgentAgence/{id}
+    defaults: { _controller: PidevReaBundle:Stat:nbrRdvAgentAgence }
+nbrOperationClientAgence:
+    path:     /nbrOperationClientAgence/{id}
+    defaults: { _controller: PidevReaBundle:Stat:nbrOperationClientAgence }
