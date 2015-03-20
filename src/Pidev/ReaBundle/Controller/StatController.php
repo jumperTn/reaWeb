@@ -30,4 +30,10 @@ public function nbrOffreClientAgenceAction($id)
     $stats= $em->getRepository("PidevReaBundle:Agence")->nbrOffreClientAgence($id);
     return $this->render("PidevReaBundle:Stat:nbrOffreClientAgence.html.twig", array('stats' => $stats));
     }
+public function offreAgenceAction($id)
+    {
+    $em = $this->getDoctrine()->getManager();
+    $stats= $em->getRepository("PidevReaBundle:Agence")->offreAgence($id);
+    return $this->render("PidevReaBundle:Stat:offreAgence.html.twig", array('stats' => $stats));
+    }
 }

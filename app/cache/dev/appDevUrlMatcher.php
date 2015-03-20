@@ -1543,6 +1543,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             }
 
+            // nbrOffreAgence
+            if (0 === strpos($pathinfo, '/stat/offreAgence') && preg_match('#^/stat/offreAgence/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'nbrOffreAgence')), array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\StatController::offreAgenceAction',));
+            }
+
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();

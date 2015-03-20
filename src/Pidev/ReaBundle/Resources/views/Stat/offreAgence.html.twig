@@ -1,0 +1,62 @@
+{% extends 'PidevReaBundle:Stat/chart:JSON_areaStacked.html.twig' %}
+{%block stat %}
+    {#       
+    {
+                    "zone": "lkjlk",
+                    "terrain": 1587,
+                    "immeuble": 650,
+                    "appartement": 121,
+                    "maison": 1050
+                }, {
+                    "terrain": "lklmkml",
+                    "immeuble": 1567,
+                    "appartement": 683,
+                    "bicycles": 146,
+                    "maison": 1050
+                }, {
+                    "zone": "lmklm",
+                    "terrain": 1587,
+                    "immeuble": 1617,
+                    "appartement": 138,
+                    "maison": 1050
+                }, {
+                    "zone": "mlkl",
+                    "immeuble": 127,
+                    "maison": 1050
+                }, {
+                    "zone": "kkk",
+                    "maison": 1050
+                }
+    #}
+       
+{% set zone = "" %}
+{% set test = 1 %}
+{% for stat in stats %}
+     {% if test !=1%}
+    {% if zone !=stat["idZone"] %}
+        },{
+        "zone":"{{stat["idZone"]}}" ,
+        "{{stat["type"]}}":{{stat["nbr"]}},
+    {% set zone =stat["idZone"] %}
+    {% else %}
+     "{{stat["type"]}}":{{stat["nbr"]}},
+    {% endif %}
+    {% else %}
+        {% set test = 2 %}
+            {% if  zone !=stat["idZone"] %}
+        {
+        "zone":"{{stat["idZone"]}}" ,
+         "{{stat["type"]}}":{{stat["nbr"]}},
+    {% set zone =stat["idZone"] %}
+    {% else %}
+     "{{stat["type"]}}":{{stat["nbr"]}},
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+    }
+    {%endblock %}
+{#
+{% for stat in stats %}
+    {{stat["nbr"]}}:{{stat["type"]}}:{{stat["idZone"]}}
+    {%endfor %}
+    #}

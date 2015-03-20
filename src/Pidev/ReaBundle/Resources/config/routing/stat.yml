@@ -7,3 +7,6 @@ nbrInscritMois:
 nbrOffreClientAgence:
     path:     /nbrOffreClientAgence/{id}
     defaults: { _controller: PidevReaBundle:Stat:nbrOffreClientAgence }
+nbrOffreAgence:
+    path:     /offreAgence/{id}
+    defaults: { _controller: PidevReaBundle:Stat:offreAgence }

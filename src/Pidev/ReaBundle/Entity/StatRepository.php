@@ -32,19 +32,17 @@ $rsm->addScalarResult('nbr', 'nbr');
 $rsm->addScalarResult('type', 'type');
 $rsm->addScalarResult('prenom', 'prenom');
 $query = $this->_em->createNativeQuery($sql, $rsm);
-return $query->getResult();
-    /*/
-    $query=$this->getEntityManager()->createQueryBuilder()->select("count(o.idClient1)as nbr ,o.type as type ,u.prenom as prenom ,o.idClient1 as idc")
-       ->from("PidevReaBundle:Utilisateur", "u")
-        ->from("PidevReaBundle:Offre", "o")
-        ->where("idClient1 = (select (c.IdClient from PidevReaBundle:Client c where idAgence1=1))")
-        ->andWhere("IdClient1=u.id")
-        ->groupBy("type")
-        ->groupBy("idc")
-        ->getQuery()
-        ->getResult();
-return $query;
-     //*/
-     
+return $query->getResult();    
+}
+public function offreAgence($id){
+$sql = "select count(*)as nbr ,type as type,idZone as idZone from offre where idAgent in (select id as id from utilisateur where idAgence4=$id and role='agent') and IdClient1 is null  group by type order by idZone";
+
+
+$rsm = new ResultSetMapping();
+$rsm->addScalarResult('nbr', 'nbr');
+$rsm->addScalarResult('type', 'type');
+$rsm->addScalarResult('idZone', 'idZone');
+$query = $this->_em->createNativeQuery($sql, $rsm);
+return $query->getResult();    
 }
 }
