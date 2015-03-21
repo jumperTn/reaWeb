@@ -10,8 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="demande", indexes={@ORM\Index(name="demande_ibfk_2", columns={"idZone"}), @ORM\Index(name="demande_ibfk_1", columns={"idUtilisateur"})})
  * @ORM\Entity
  */
-class Demande
-{
+class Demande {
+
     /**
      * @var integer
      *
@@ -55,15 +55,12 @@ class Demande
      */
     private $idutilisateur;
 
-
-
     /**
      * Get id
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -73,8 +70,7 @@ class Demande
      * @param float $surface
      * @return Demande
      */
-    public function setSurface($surface)
-    {
+    public function setSurface($surface) {
         $this->surface = $surface;
 
         return $this;
@@ -85,8 +81,7 @@ class Demande
      *
      * @return float 
      */
-    public function getSurface()
-    {
+    public function getSurface() {
         return $this->surface;
     }
 
@@ -96,8 +91,7 @@ class Demande
      * @param string $type
      * @return Demande
      */
-    public function setType($type)
-    {
+    public function setType($type) {
         $this->type = $type;
 
         return $this;
@@ -108,8 +102,7 @@ class Demande
      *
      * @return string 
      */
-    public function getType()
-    {
+    public function getType() {
         return $this->type;
     }
 
@@ -119,8 +112,7 @@ class Demande
      * @param \Pidev\ReaBundle\Entity\Zone $idzone
      * @return Demande
      */
-    public function setIdzone(\Pidev\ReaBundle\Entity\Zone $idzone = null)
-    {
+    public function setIdzone(\Pidev\ReaBundle\Entity\Zone $idzone = null) {
         $this->idzone = $idzone;
 
         return $this;
@@ -131,8 +123,7 @@ class Demande
      *
      * @return \Pidev\ReaBundle\Entity\Zone 
      */
-    public function getIdzone()
-    {
+    public function getIdzone() {
         return $this->idzone;
     }
 
@@ -142,8 +133,7 @@ class Demande
      * @param \Pidev\ReaBundle\Entity\Utilisateur $idutilisateur
      * @return Demande
      */
-    public function setIdutilisateur(\Pidev\ReaBundle\Entity\Utilisateur $idutilisateur = null)
-    {
+    public function setIdutilisateur(\Pidev\ReaBundle\Entity\Utilisateur $idutilisateur = null) {
         $this->idutilisateur = $idutilisateur;
 
         return $this;
@@ -154,8 +144,16 @@ class Demande
      *
      * @return \Pidev\ReaBundle\Entity\Utilisateur 
      */
-    public function getIdutilisateur()
-    {
+    public function getIdutilisateur() {
         return $this->idutilisateur;
     }
+
+    public function __toString() {
+        try {
+            return (string) $this->id;
+        } catch (Exception $exception) {
+            return '';
+        }
+    }
+
 }

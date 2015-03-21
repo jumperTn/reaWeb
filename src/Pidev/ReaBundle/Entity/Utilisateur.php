@@ -365,4 +365,12 @@ class Utilisateur
     {
         return $this->idagence4;
     }
+     public function __toString()
+{
+try {
+return (string) $this->nomutilisateur;
+} catch (Exception $exception) {
+return '';
+}
+}
 }

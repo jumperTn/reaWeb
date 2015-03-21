@@ -17,14 +17,17 @@
             <tr>
                 <td><a href="{{ path('notification_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                 <td>{{ entity.description }}</td>
-                <td>{{ entity.etat }}</td>
+                <td>
+                {% if entity.etat==0 %}
+                    non lu
+                    {% else %}
+                        lu
+                    {% endif %}
+                </td>
                 <td>
                 <ul>
                     <li>
-                        <a href="{{ path('notification_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('notification_edit', { 'id': entity.id }) }}">edit</a>
+                        <a href="{{ path('notification_delete', { 'id': entity.id }) }}">edit</a>
                     </li>
                 </ul>
                 </td>

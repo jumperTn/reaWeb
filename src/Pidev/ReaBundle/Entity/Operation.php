@@ -115,8 +115,11 @@ class Operation
 
         return $this;
     }
+    public function setNumcontrat($numcontrat) {
+        $this->numcontrat = $numcontrat;
+    }
 
-    /**
+        /**
      * Get idrdv
      *
      * @return \Pidev\ReaBundle\Entity\Rendezvous 

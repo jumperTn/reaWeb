@@ -36,40 +36,41 @@ class __TwigTemplate_b7184e7b6c5c84baefdacfd756191085e38a3434a4cc507dacb5f5d4a1f
     public function block_stat($context, array $blocks = array())
     {
         // line 3
-        echo "   ";
-        // line 72
+        echo "   
+";
+        // line 4
         $context["client"] = "";
-        // line 73
+        // line 5
         $context["test"] = 1;
-        // line 74
+        // line 6
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["stats"]) ? $context["stats"] : $this->getContext($context, "stats")));
         foreach ($context['_seq'] as $context["_key"] => $context["stat"]) {
-            // line 75
+            // line 7
             echo "     ";
             if (((isset($context["test"]) ? $context["test"] : $this->getContext($context, "test")) != 1)) {
-                // line 76
+                // line 8
                 echo "    ";
                 if (((isset($context["client"]) ? $context["client"] : $this->getContext($context, "client")) != $this->getAttribute($context["stat"], "prenom", array(), "array"))) {
-                    // line 77
+                    // line 9
                     echo "        },{
         \"client\":\"";
-                    // line 78
+                    // line 10
                     echo twig_escape_filter($this->env, $this->getAttribute($context["stat"], "prenom", array(), "array"), "html", null, true);
                     echo "\" ,
         \"";
-                    // line 79
+                    // line 11
                     echo twig_escape_filter($this->env, $this->getAttribute($context["stat"], "type", array(), "array"), "html", null, true);
                     echo "\":";
                     echo twig_escape_filter($this->env, $this->getAttribute($context["stat"], "nbr", array(), "array"), "html", null, true);
                     echo ",
     ";
-                    // line 80
+                    // line 12
                     $context["client"] = $this->getAttribute($context["stat"], "prenom", array(), "array");
-                    // line 81
+                    // line 13
                     echo "    ";
                 } else {
-                    // line 82
+                    // line 14
                     echo "     \"";
                     echo twig_escape_filter($this->env, $this->getAttribute($context["stat"], "type", array(), "array"), "html", null, true);
                     echo "\":";
@@ -77,34 +78,34 @@ class __TwigTemplate_b7184e7b6c5c84baefdacfd756191085e38a3434a4cc507dacb5f5d4a1f
                     echo ",
     ";
                 }
-                // line 84
+                // line 16
                 echo "    ";
             } else {
-                // line 85
+                // line 17
                 echo "        ";
                 $context["test"] = 2;
-                // line 86
+                // line 18
                 echo "            ";
                 if (((isset($context["client"]) ? $context["client"] : $this->getContext($context, "client")) != $this->getAttribute($context["stat"], "prenom", array(), "array"))) {
-                    // line 87
+                    // line 19
                     echo "        {
         \"client\":\"";
-                    // line 88
+                    // line 20
                     echo twig_escape_filter($this->env, $this->getAttribute($context["stat"], "prenom", array(), "array"), "html", null, true);
                     echo "\" ,
          \"";
-                    // line 89
+                    // line 21
                     echo twig_escape_filter($this->env, $this->getAttribute($context["stat"], "type", array(), "array"), "html", null, true);
                     echo "\":";
                     echo twig_escape_filter($this->env, $this->getAttribute($context["stat"], "nbr", array(), "array"), "html", null, true);
                     echo ",
     ";
-                    // line 90
+                    // line 22
                     $context["client"] = $this->getAttribute($context["stat"], "prenom", array(), "array");
-                    // line 91
+                    // line 23
                     echo "    ";
                 } else {
-                    // line 92
+                    // line 24
                     echo "     \"";
                     echo twig_escape_filter($this->env, $this->getAttribute($context["stat"], "type", array(), "array"), "html", null, true);
                     echo "\":";
@@ -112,16 +113,16 @@ class __TwigTemplate_b7184e7b6c5c84baefdacfd756191085e38a3434a4cc507dacb5f5d4a1f
                     echo ",
     ";
                 }
-                // line 94
+                // line 26
                 echo "    ";
             }
-            // line 95
+            // line 27
             echo "    ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['stat'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 96
+        // line 28
         echo "    }
     ";
     }
@@ -138,6 +139,6 @@ class __TwigTemplate_b7184e7b6c5c84baefdacfd756191085e38a3434a4cc507dacb5f5d4a1f
 
     public function getDebugInfo()
     {
-        return array (  125 => 96,  119 => 95,  116 => 94,  108 => 92,  105 => 91,  103 => 90,  97 => 89,  93 => 88,  90 => 87,  87 => 86,  84 => 85,  81 => 84,  73 => 82,  70 => 81,  68 => 80,  62 => 79,  58 => 78,  55 => 77,  52 => 76,  49 => 75,  45 => 74,  43 => 73,  41 => 72,  39 => 3,  36 => 2,  11 => 1,);
+        return array (  126 => 28,  120 => 27,  117 => 26,  109 => 24,  106 => 23,  104 => 22,  98 => 21,  94 => 20,  91 => 19,  88 => 18,  85 => 17,  82 => 16,  74 => 14,  71 => 13,  69 => 12,  63 => 11,  59 => 10,  56 => 9,  53 => 8,  50 => 7,  46 => 6,  44 => 5,  42 => 4,  39 => 3,  36 => 2,  11 => 1,);
     }
 }

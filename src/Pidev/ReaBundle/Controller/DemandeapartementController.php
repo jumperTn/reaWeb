@@ -44,7 +44,7 @@ class DemandeapartementController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('demandeapartement_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('demandeapartement_show', array('id' => $entity->getIddemande())));
         }
 
         return $this->render('PidevReaBundle:Demandeapartement:new.html.twig', array(
@@ -143,7 +143,7 @@ class DemandeapartementController extends Controller
     private function createEditForm(Demandeapartement $entity)
     {
         $form = $this->createForm(new DemandeapartementType(), $entity, array(
-            'action' => $this->generateUrl('demandeapartement_update', array('id' => $entity->getId())),
+            'action' => $this->generateUrl('demandeapartement_update', array('id' => $entity->getIddemande())),
             'method' => 'PUT',
         ));
 

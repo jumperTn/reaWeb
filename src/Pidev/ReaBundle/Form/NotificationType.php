@@ -16,7 +16,6 @@ class NotificationType extends AbstractType
     {
         $builder
             ->add('description')
-            ->add('etat')
             ->add('idutilisateur')
         ;
     }

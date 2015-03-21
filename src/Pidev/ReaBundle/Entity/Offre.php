@@ -461,12 +461,12 @@ class Offre
     {
         return $this->idclient1;
     }
-        public function __toString()
+     public function __toString()
 {
-     try {
+try {
 return (string) $this->id;
 } catch (Exception $exception) {
 return '';
-} 
+}
 }
 }

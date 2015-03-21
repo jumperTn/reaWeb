@@ -29,14 +29,14 @@ class Rendezvous
     private $daterendezvous = 'CURRENT_TIMESTAMP';
 
     /**
-     * @var \Offre
+     * @var \Utilisateur
      *
-     * @ORM\ManyToOne(targetEntity="Offre")
+     * @ORM\ManyToOne(targetEntity="Utilisateur")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="IdOffre", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="IdClient1", referencedColumnName="id")
      * })
      */
-    private $idoffre;
+    private $idclient1;
 
     /**
      * @var \Utilisateur
@@ -49,14 +49,14 @@ class Rendezvous
     private $idagent;
 
     /**
-     * @var \Client
+     * @var \Offre
      *
-     * @ORM\ManyToOne(targetEntity="Client")
+     * @ORM\ManyToOne(targetEntity="Offre")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="IdClient1", referencedColumnName="IdClient")
+     *   @ORM\JoinColumn(name="IdOffre", referencedColumnName="id")
      * })
      */
-    private $idclient1;
+    private $idoffre;
 
 
 
@@ -94,26 +94,26 @@ class Rendezvous
     }
 
     /**
-     * Set idoffre
+     * Set idclient1
      *
-     * @param \Pidev\ReaBundle\Entity\Offre $idoffre
+     * @param \Pidev\ReaBundle\Entity\Utilisateur $idclient1
      * @return Rendezvous
      */
-    public function setIdoffre(\Pidev\ReaBundle\Entity\Offre $idoffre = null)
+    public function setIdclient1(\Pidev\ReaBundle\Entity\Utilisateur $idclient1 = null)
     {
-        $this->idoffre = $idoffre;
+        $this->idclient1 = $idclient1;
 
         return $this;
     }
 
     /**
-     * Get idoffre
+     * Get idclient1
      *
-     * @return \Pidev\ReaBundle\Entity\Offre 
+     * @return \Pidev\ReaBundle\Entity\Utilisateur 
      */
-    public function getIdoffre()
+    public function getIdclient1()
     {
-        return $this->idoffre;
+        return $this->idclient1;
     }
 
     /**
@@ -140,25 +140,33 @@ class Rendezvous
     }
 
     /**
-     * Set idclient1
+     * Set idoffre
      *
-     * @param \Pidev\ReaBundle\Entity\Client $idclient1
+     * @param \Pidev\ReaBundle\Entity\Offre $idoffre
      * @return Rendezvous
      */
-    public function setIdclient1(\Pidev\ReaBundle\Entity\Client $idclient1 = null)
+    public function setIdoffre(\Pidev\ReaBundle\Entity\Offre $idoffre = null)
     {
-        $this->idclient1 = $idclient1;
+        $this->idoffre = $idoffre;
 
         return $this;
     }
 
     /**
-     * Get idclient1
+     * Get idoffre
      *
-     * @return \Pidev\ReaBundle\Entity\Client 
+     * @return \Pidev\ReaBundle\Entity\Offre 
      */
-    public function getIdclient1()
+    public function getIdoffre()
     {
-        return $this->idclient1;
+        return $this->idoffre;
     }
+         public function __toString()
+{
+try {
+return (string) $this->id;
+} catch (Exception $exception) {
+return '';
+}
+}
 }

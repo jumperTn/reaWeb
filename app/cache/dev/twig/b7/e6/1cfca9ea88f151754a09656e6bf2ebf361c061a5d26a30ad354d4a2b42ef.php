@@ -65,22 +65,26 @@ class __TwigTemplate_b7e61cfca9ea88f151754a09656e6bf2ebf361c061a5d26a30ad354d4a2
             // line 19
             echo twig_escape_filter($this->env, $this->getAttribute($context["entity"], "description", array()), "html", null, true);
             echo "</td>
-                <td>";
-            // line 20
-            echo twig_escape_filter($this->env, $this->getAttribute($context["entity"], "etat", array()), "html", null, true);
-            echo "</td>
+                <td>
+                ";
+            // line 21
+            if (($this->getAttribute($context["entity"], "etat", array()) == 0)) {
+                // line 22
+                echo "                    non lu
+                    ";
+            } else {
+                // line 24
+                echo "                        lu
+                    ";
+            }
+            // line 26
+            echo "                </td>
                 <td>
                 <ul>
                     <li>
                         <a href=\"";
-            // line 24
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("notification_show", array("id" => $this->getAttribute($context["entity"], "id", array()))), "html", null, true);
-            echo "\">show</a>
-                    </li>
-                    <li>
-                        <a href=\"";
-            // line 27
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("notification_edit", array("id" => $this->getAttribute($context["entity"], "id", array()))), "html", null, true);
+            // line 30
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("notification_delete", array("id" => $this->getAttribute($context["entity"], "id", array()))), "html", null, true);
             echo "\">edit</a>
                     </li>
                 </ul>
@@ -91,14 +95,14 @@ class __TwigTemplate_b7e61cfca9ea88f151754a09656e6bf2ebf361c061a5d26a30ad354d4a2
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['entity'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 33
+        // line 36
         echo "        </tbody>
     </table>
 
         <ul>
         <li>
             <a href=\"";
-        // line 38
+        // line 41
         echo $this->env->getExtension('routing')->getPath("notification_new");
         echo "\">
                 Create a new entry
@@ -120,6 +124,6 @@ class __TwigTemplate_b7e61cfca9ea88f151754a09656e6bf2ebf361c061a5d26a30ad354d4a2
 
     public function getDebugInfo()
     {
-        return array (  102 => 38,  95 => 33,  83 => 27,  77 => 24,  70 => 20,  66 => 19,  60 => 18,  57 => 17,  53 => 16,  39 => 4,  36 => 3,  11 => 1,);
+        return array (  106 => 41,  99 => 36,  87 => 30,  81 => 26,  77 => 24,  73 => 22,  71 => 21,  66 => 19,  60 => 18,  57 => 17,  53 => 16,  39 => 4,  36 => 3,  11 => 1,);
     }
 }

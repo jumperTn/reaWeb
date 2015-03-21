@@ -332,15 +332,12 @@ class Zone
     {
         return $this->nbrvote;
     }
-    public function __toString()
+     public function __toString()
 {
-     try {
+try {
 return (string) $this->libelle;
 } catch (Exception $exception) {
 return '';
-} 
 }
-
-
-
+}
 }

@@ -36,54 +36,52 @@ class __TwigTemplate_f78eda764cce3fecaa2068190db5e12cc9596a713a75c03872c2e9ba2f2
     public function block_test($context, array $blocks = array())
     {
         // line 3
-        echo "     ";
+        echo "    ";
         $context["test"] = 1;
         // line 4
-        echo "     ";
+        echo "    ";
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["stats"]) ? $context["stats"] : $this->getContext($context, "stats")));
         foreach ($context['_seq'] as $context["_key"] => $context["stat"]) {
             // line 5
-            echo "    ";
+            echo "        ";
             if (((isset($context["test"]) ? $context["test"] : $this->getContext($context, "test")) == 1)) {
                 // line 6
-                echo "         {   
-     \"nomAgence\": \"";
+                echo "            {   
+            \"nomAgence\": \"";
                 // line 7
                 echo twig_escape_filter($this->env, $this->getAttribute($context["stat"], "secteur", array()), "html", null, true);
                 echo "\",
-         \"nbrAgence\": ";
+            \"nbrAgence\": ";
                 // line 8
                 echo twig_escape_filter($this->env, $this->getAttribute($context["stat"], "nbr", array()), "html", null, true);
                 echo "
-         }
-    ";
+            }
+            ";
                 // line 10
                 $context["test"] = 2;
                 // line 11
-                echo "      ";
+                echo "        ";
             } else {
                 echo "   
-         ,{   
-     \"nomAgence\": \"";
+            ,{   
+            \"nomAgence\": \"";
                 // line 13
                 echo twig_escape_filter($this->env, $this->getAttribute($context["stat"], "secteur", array()), "html", null, true);
                 echo "\",
-         \"nbrAgence\": ";
+            \"nbrAgence\": ";
                 // line 14
                 echo twig_escape_filter($this->env, $this->getAttribute($context["stat"], "nbr", array()), "html", null, true);
                 echo "
-         }
-         ";
+            }
+        ";
             }
             // line 17
-            echo "         ";
+            echo "    ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['stat'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 18
-        echo "     ";
     }
 
     public function getTemplateName()
@@ -98,6 +96,6 @@ class __TwigTemplate_f78eda764cce3fecaa2068190db5e12cc9596a713a75c03872c2e9ba2f2
 
     public function getDebugInfo()
     {
-        return array (  86 => 18,  80 => 17,  74 => 14,  70 => 13,  64 => 11,  62 => 10,  57 => 8,  53 => 7,  50 => 6,  47 => 5,  42 => 4,  39 => 3,  36 => 2,  11 => 1,);
+        return array (  80 => 17,  74 => 14,  70 => 13,  64 => 11,  62 => 10,  57 => 8,  53 => 7,  50 => 6,  47 => 5,  42 => 4,  39 => 3,  36 => 2,  11 => 1,);
     }
 }

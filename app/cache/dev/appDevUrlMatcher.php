@@ -127,6 +127,126 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        if (0 === strpos($pathinfo, '/client')) {
+            // client
+            if (rtrim($pathinfo, '/') === '/client') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'client');
+                }
+
+                return array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\ClientController::indexAction',  '_route' => 'client',);
+            }
+
+            // client_show
+            if (preg_match('#^/client/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'client_show')), array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\ClientController::showAction',));
+            }
+
+            // client_new
+            if ($pathinfo === '/client/new') {
+                return array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\ClientController::newAction',  '_route' => 'client_new',);
+            }
+
+            // client_create
+            if ($pathinfo === '/client/create') {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_client_create;
+                }
+
+                return array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\ClientController::createAction',  '_route' => 'client_create',);
+            }
+            not_client_create:
+
+            // client_edit
+            if (preg_match('#^/client/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'client_edit')), array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\ClientController::editAction',));
+            }
+
+            // client_update
+            if (preg_match('#^/client/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
+                    $allow = array_merge($allow, array('POST', 'PUT'));
+                    goto not_client_update;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'client_update')), array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\ClientController::updateAction',));
+            }
+            not_client_update:
+
+            // client_delete
+            if (preg_match('#^/client/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
+                    $allow = array_merge($allow, array('POST', 'DELETE'));
+                    goto not_client_delete;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'client_delete')), array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\ClientController::deleteAction',));
+            }
+            not_client_delete:
+
+        }
+
+        if (0 === strpos($pathinfo, '/offre')) {
+            // offre
+            if (rtrim($pathinfo, '/') === '/offre') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'offre');
+                }
+
+                return array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\OffreController::indexAction',  '_route' => 'offre',);
+            }
+
+            // offre_show
+            if (preg_match('#^/offre/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'offre_show')), array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\OffreController::showAction',));
+            }
+
+            // offre_new
+            if ($pathinfo === '/offre/new') {
+                return array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\OffreController::newAction',  '_route' => 'offre_new',);
+            }
+
+            // offre_create
+            if ($pathinfo === '/offre/create') {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_offre_create;
+                }
+
+                return array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\OffreController::createAction',  '_route' => 'offre_create',);
+            }
+            not_offre_create:
+
+            // offre_edit
+            if (preg_match('#^/offre/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'offre_edit')), array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\OffreController::editAction',));
+            }
+
+            // offre_update
+            if (preg_match('#^/offre/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
+                    $allow = array_merge($allow, array('POST', 'PUT'));
+                    goto not_offre_update;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'offre_update')), array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\OffreController::updateAction',));
+            }
+            not_offre_update:
+
+            // offre_delete
+            if (preg_match('#^/offre/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
+                    $allow = array_merge($allow, array('POST', 'DELETE'));
+                    goto not_offre_delete;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'offre_delete')), array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\OffreController::deleteAction',));
+            }
+            not_offre_delete:
+
+        }
+
         if (0 === strpos($pathinfo, '/utilisateur')) {
             // utilisateur
             if (rtrim($pathinfo, '/') === '/utilisateur') {
@@ -433,126 +553,63 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        if (0 === strpos($pathinfo, '/o')) {
-            if (0 === strpos($pathinfo, '/operation')) {
-                // operation
-                if (rtrim($pathinfo, '/') === '/operation') {
-                    if (substr($pathinfo, -1) !== '/') {
-                        return $this->redirect($pathinfo.'/', 'operation');
-                    }
-
-                    return array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\OperationController::indexAction',  '_route' => 'operation',);
+        if (0 === strpos($pathinfo, '/operation')) {
+            // operation
+            if (rtrim($pathinfo, '/') === '/operation') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'operation');
                 }
 
-                // operation_show
-                if (preg_match('#^/operation/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'operation_show')), array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\OperationController::showAction',));
-                }
-
-                // operation_new
-                if ($pathinfo === '/operation/new') {
-                    return array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\OperationController::newAction',  '_route' => 'operation_new',);
-                }
-
-                // operation_create
-                if ($pathinfo === '/operation/create') {
-                    if ($this->context->getMethod() != 'POST') {
-                        $allow[] = 'POST';
-                        goto not_operation_create;
-                    }
-
-                    return array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\OperationController::createAction',  '_route' => 'operation_create',);
-                }
-                not_operation_create:
-
-                // operation_edit
-                if (preg_match('#^/operation/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'operation_edit')), array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\OperationController::editAction',));
-                }
-
-                // operation_update
-                if (preg_match('#^/operation/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
-                    if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
-                        $allow = array_merge($allow, array('POST', 'PUT'));
-                        goto not_operation_update;
-                    }
-
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'operation_update')), array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\OperationController::updateAction',));
-                }
-                not_operation_update:
-
-                // operation_delete
-                if (preg_match('#^/operation/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
-                    if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
-                        $allow = array_merge($allow, array('POST', 'DELETE'));
-                        goto not_operation_delete;
-                    }
-
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'operation_delete')), array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\OperationController::deleteAction',));
-                }
-                not_operation_delete:
-
+                return array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\OperationController::indexAction',  '_route' => 'operation',);
             }
 
-            if (0 === strpos($pathinfo, '/offre')) {
-                // offre
-                if (rtrim($pathinfo, '/') === '/offre') {
-                    if (substr($pathinfo, -1) !== '/') {
-                        return $this->redirect($pathinfo.'/', 'offre');
-                    }
-
-                    return array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\OffreController::indexAction',  '_route' => 'offre',);
-                }
-
-                // offre_show
-                if (preg_match('#^/offre/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'offre_show')), array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\OffreController::showAction',));
-                }
-
-                // offre_new
-                if ($pathinfo === '/offre/new') {
-                    return array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\OffreController::newAction',  '_route' => 'offre_new',);
-                }
-
-                // offre_create
-                if ($pathinfo === '/offre/create') {
-                    if ($this->context->getMethod() != 'POST') {
-                        $allow[] = 'POST';
-                        goto not_offre_create;
-                    }
-
-                    return array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\OffreController::createAction',  '_route' => 'offre_create',);
-                }
-                not_offre_create:
-
-                // offre_edit
-                if (preg_match('#^/offre/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'offre_edit')), array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\OffreController::editAction',));
-                }
-
-                // offre_update
-                if (preg_match('#^/offre/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
-                    if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
-                        $allow = array_merge($allow, array('POST', 'PUT'));
-                        goto not_offre_update;
-                    }
-
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'offre_update')), array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\OffreController::updateAction',));
-                }
-                not_offre_update:
-
-                // offre_delete
-                if (preg_match('#^/offre/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
-                    if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
-                        $allow = array_merge($allow, array('POST', 'DELETE'));
-                        goto not_offre_delete;
-                    }
-
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'offre_delete')), array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\OffreController::deleteAction',));
-                }
-                not_offre_delete:
-
+            // operation_show
+            if (preg_match('#^/operation/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'operation_show')), array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\OperationController::showAction',));
             }
+
+            // operation_new
+            if ($pathinfo === '/operation/new') {
+                return array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\OperationController::newAction',  '_route' => 'operation_new',);
+            }
+
+            // operation_create
+            if ($pathinfo === '/operation/create') {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_operation_create;
+                }
+
+                return array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\OperationController::createAction',  '_route' => 'operation_create',);
+            }
+            not_operation_create:
+
+            // operation_edit
+            if (preg_match('#^/operation/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'operation_edit')), array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\OperationController::editAction',));
+            }
+
+            // operation_update
+            if (preg_match('#^/operation/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
+                    $allow = array_merge($allow, array('POST', 'PUT'));
+                    goto not_operation_update;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'operation_update')), array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\OperationController::updateAction',));
+            }
+            not_operation_update:
+
+            // operation_delete
+            if (preg_match('#^/operation/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
+                    $allow = array_merge($allow, array('POST', 'DELETE'));
+                    goto not_operation_delete;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'operation_delete')), array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\OperationController::deleteAction',));
+            }
+            not_operation_delete:
 
         }
 
@@ -666,14 +723,8 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
                 // notification_delete
                 if (preg_match('#^/notification/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
-                    if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
-                        $allow = array_merge($allow, array('POST', 'DELETE'));
-                        goto not_notification_delete;
-                    }
-
                     return $this->mergeDefaults(array_replace($matches, array('_route' => 'notification_delete')), array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\NotificationController::deleteAction',));
                 }
-                not_notification_delete:
 
             }
 
@@ -1339,66 +1390,6 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 not_agence_delete:
 
             }
-
-        }
-
-        if (0 === strpos($pathinfo, '/client')) {
-            // client
-            if (rtrim($pathinfo, '/') === '/client') {
-                if (substr($pathinfo, -1) !== '/') {
-                    return $this->redirect($pathinfo.'/', 'client');
-                }
-
-                return array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\ClientController::indexAction',  '_route' => 'client',);
-            }
-
-            // client_show
-            if (preg_match('#^/client/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'client_show')), array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\ClientController::showAction',));
-            }
-
-            // client_new
-            if ($pathinfo === '/client/new') {
-                return array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\ClientController::newAction',  '_route' => 'client_new',);
-            }
-
-            // client_create
-            if ($pathinfo === '/client/create') {
-                if ($this->context->getMethod() != 'POST') {
-                    $allow[] = 'POST';
-                    goto not_client_create;
-                }
-
-                return array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\ClientController::createAction',  '_route' => 'client_create',);
-            }
-            not_client_create:
-
-            // client_edit
-            if (preg_match('#^/client/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'client_edit')), array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\ClientController::editAction',));
-            }
-
-            // client_update
-            if (preg_match('#^/client/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
-                if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
-                    $allow = array_merge($allow, array('POST', 'PUT'));
-                    goto not_client_update;
-                }
-
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'client_update')), array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\ClientController::updateAction',));
-            }
-            not_client_update:
-
-            // client_delete
-            if (preg_match('#^/client/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
-                if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
-                    $allow = array_merge($allow, array('POST', 'DELETE'));
-                    goto not_client_delete;
-                }
-
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'client_delete')), array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\ClientController::deleteAction',));
-            }
-            not_client_delete:
 
         }
 

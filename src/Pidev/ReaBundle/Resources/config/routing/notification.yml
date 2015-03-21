@@ -27,4 +27,3 @@ notification_update:
 notification_delete:
     path:     /{id}/delete
     defaults: { _controller: "PidevReaBundle:Notification:delete" }
-    requirements: { _method: post|delete }

@@ -22,6 +22,16 @@ class Client
     private $id;
 
     /**
+     * @var \Utilisateur
+     *
+     * @ORM\ManyToOne(targetEntity="Utilisateur")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="IdClient", referencedColumnName="id")
+     * })
+     */
+    private $idclient;
+
+    /**
      * @var \Agence
      *
      * @ORM\ManyToOne(targetEntity="Agence")
@@ -30,16 +40,6 @@ class Client
      * })
      */
     private $idagence1;
-
-    /**
-     * @var \Agence
-     *
-     * @ORM\ManyToOne(targetEntity="Agence")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="IdClient", referencedColumnName="id")
-     * })
-     */
-    private $idclient;
 
 
 
@@ -51,6 +51,29 @@ class Client
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set idclient
+     *
+     * @param \Pidev\ReaBundle\Entity\Utilisateur $idclient
+     * @return Client
+     */
+    public function setIdclient(\Pidev\ReaBundle\Entity\Utilisateur $idclient = null)
+    {
+        $this->idclient = $idclient;
+
+        return $this;
+    }
+
+    /**
+     * Get idclient
+     *
+     * @return \Pidev\ReaBundle\Entity\Utilisateur 
+     */
+    public function getIdclient()
+    {
+        return $this->idclient;
     }
 
     /**
@@ -75,27 +98,12 @@ class Client
     {
         return $this->idagence1;
     }
-
-    /**
-     * Set idclient
-     *
-     * @param \Pidev\ReaBundle\Entity\Agence $idclient
-     * @return Client
-     */
-    public function setIdclient(\Pidev\ReaBundle\Entity\Agence $idclient = null)
-    {
-        $this->idclient = $idclient;
-
-        return $this;
-    }
-
-    /**
-     * Get idclient
-     *
-     * @return \Pidev\ReaBundle\Entity\Agence 
-     */
-    public function getIdclient()
-    {
-        return $this->idclient;
-    }
+     public function __toString()
+{
+try {
+return (string) $this->idclient;
+} catch (Exception $exception) {
+return '';
+}
+}
 }

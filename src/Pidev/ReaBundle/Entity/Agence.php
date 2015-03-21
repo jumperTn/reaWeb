@@ -5,11 +5,11 @@ namespace Pidev\ReaBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Agence
- *
- * @ORM\Table(name="agence")
- * @ORM\Entity(repositoryClass="Pidev\ReaBundle\Entity\StatRepository")
- */
+* Agence
+*
+* @ORM\Table(name="agence")
+* @ORM\Entity(repositoryClass="Pidev\ReaBundle\Entity\StatRepository")
+*/
 class Agence
 {
     /**
@@ -122,4 +122,12 @@ class Agence
     {
         return $this->adresse;
     }
+         public function __toString()
+{
+try {
+return (string) $this->nomagance;
+} catch (Exception $exception) {
+return '';
+}
+}
 }

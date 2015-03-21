@@ -33,7 +33,7 @@ class Notification
      *
      * @ORM\Column(name="etat", type="boolean", nullable=false)
      */
-    private $etat = '0';
+    private $etat = 0;
 
     /**
      * @var \Utilisateur
