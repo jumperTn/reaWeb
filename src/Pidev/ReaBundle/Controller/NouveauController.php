@@ -44,7 +44,7 @@ class NouveauController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('nouveau_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('nouveau_show', array('id' => $entity->getIdoffre())));
         }
 
         return $this->render('PidevReaBundle:Nouveau:new.html.twig', array(
@@ -143,7 +143,7 @@ class NouveauController extends Controller
     private function createEditForm(Nouveau $entity)
     {
         $form = $this->createForm(new NouveauType(), $entity, array(
-            'action' => $this->generateUrl('nouveau_update', array('id' => $entity->getId())),
+            'action' => $this->generateUrl('nouveau_update', array('id' => $entity->getIdoffre())),
             'method' => 'PUT',
         ));
 

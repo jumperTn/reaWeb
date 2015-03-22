@@ -44,7 +44,7 @@ class GallerieController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('gallerie_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('gallerie_show', array('id' => $entity->getIdimage())));
         }
 
         return $this->render('PidevReaBundle:Gallerie:new.html.twig', array(
@@ -143,7 +143,7 @@ class GallerieController extends Controller
     private function createEditForm(Gallerie $entity)
     {
         $form = $this->createForm(new GallerieType(), $entity, array(
-            'action' => $this->generateUrl('gallerie_update', array('id' => $entity->getId())),
+            'action' => $this->generateUrl('gallerie_update', array('id' => $entity->getIdimage())),
             'method' => 'PUT',
         ));
 

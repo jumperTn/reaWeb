@@ -1,10 +1,10 @@
-pidev_rea_client:
-    resource: "@PidevReaBundle/Resources/config/routing/client.yml"
-    prefix:   /client
-
 pidev_rea_offre:
     resource: "@PidevReaBundle/Resources/config/routing/offre.yml"
     prefix:   /offre
+
+pidev_rea_client:
+    resource: "@PidevReaBundle/Resources/config/routing/client.yml"
+    prefix:   /client
 
 pidev_rea_utilisateur:
     resource: "@PidevReaBundle/Resources/config/routing/utilisateur.yml"

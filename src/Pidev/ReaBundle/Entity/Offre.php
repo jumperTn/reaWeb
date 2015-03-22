@@ -123,7 +123,7 @@ class Offre
      *
      * @ORM\ManyToOne(targetEntity="Client")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idClient1", referencedColumnName="IdClient")
+     *   @ORM\JoinColumn(name="idclient1", referencedColumnName="id")
      * })
      */
     private $idclient1;
@@ -461,12 +461,12 @@ class Offre
     {
         return $this->idclient1;
     }
-     public function __toString()
-{
-try {
-return (string) $this->id;
-} catch (Exception $exception) {
-return '';
-}
-}
+         public function __toString() {
+        try {
+            return (string) $this->id;
+        } catch (Exception $exception) {
+            return '';
+        }
+    }
+
 }

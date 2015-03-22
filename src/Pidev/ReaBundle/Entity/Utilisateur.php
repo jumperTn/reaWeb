@@ -20,8 +20,11 @@ class Utilisateur
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
+    public function setId($id) {
+        $this->id = $id;
+    }
 
-    /**
+        /**
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=30, nullable=false)

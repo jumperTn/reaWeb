@@ -92,4 +92,12 @@ class Rapport
     {
         return $this->datemodification;
     }
+             public function __toString()
+{
+try {
+return (string) $this->id;
+} catch (Exception $exception) {
+return '';
+}
+}
 }
