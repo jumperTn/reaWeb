@@ -1,16 +1,16 @@
-{% extends '::base.html.twig' %}
+{% extends "PidevReaBundle::Layout.html.twig" %}
 
-{% block body -%}
-    <h1>Zone list</h1>
+{% block content %}
 
-    <table class="records_list">
+    <h1>La liste des zones</h1>
+
+    <table class="records_list" border="2">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Libelle</th>
+                <th>Nom</th>
                 <th>Education</th>
                 <th>Environement</th>
-                <th>Secoursetinterventionurgence</th>
+                <th>Secours</th>
                 <th>Sante</th>
                 <th>Loisirs</th>
                 <th>Securite</th>
@@ -23,7 +23,6 @@
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('zone_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                 <td>{{ entity.libelle }}</td>
                 <td>{{ entity.education }}</td>
                 <td>{{ entity.environement }}</td>

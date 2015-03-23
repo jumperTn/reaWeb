@@ -1,68 +1,130 @@
-{% extends '::base.html.twig' %}
+{% extends "PidevReaBundle::Layout.html.twig" %}
+{% block scripts %}
 
-{% block body -%}
-    <h1>Zone</h1>
+    <script>$(function () { // wait for document to load
 
-    <table class="record_properties">
+            $('input[type=radio]', '#educ').rating('select', "{{ entity.education }}");
+            $('input[type=radio]', '#env').rating('select', "{{ entity.environement }}");
+            $('input[type=radio]', '#sant').rating('select', "{{ entity.sante }}");
+            $('input[type=radio]', '#lois').rating('select', "{{ entity.loisirs }}");
+            $('input[type=radio]', '#sec').rating('select', "{{ entity.securite }}");
+            $('input[type=radio]', '#secours').rating('select', "{{ entity.secoursetinterventionurgence }}");
+            $('input[type=radio]', '#tr').rating('select', "{{ entity.transport }}");
+            $('input[type=radio]', '#onas').rating('select', "{{ entity.eauxusees }}");
+            $('input[type=radio]').rating('disable');
+        });</script>
+    {% endblock %}
+
+{% block content %}
+    <h1>Zone: {{ entity.libelle }}</h1>
+
+    <table class="record_properties" border="2">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ entity.id }}</td>
-            </tr>
-            <tr>
-                <th>Libelle</th>
-                <td>{{ entity.libelle }}</td>
-            </tr>
-            <tr>
                 <th>Education</th>
-                <td>{{ entity.education }}</td>
+                <td><form name="api-select" id="educ">
+                        <input type="radio" class="star" name="api-select-test" value="1"/>
+                        <input type="radio" class="star" name="api-select-test" value="2"/>
+                        <input type="radio" class="star" name="api-select-test" value="3"/>
+                        <input type="radio" class="star" name="api-select-test" value="4"/>
+                        <input type="radio" class="star" name="api-select-test" value="5"/>
+                    </form> </td>
             </tr>
             <tr>
                 <th>Environement</th>
-                <td>{{ entity.environement }}</td>
+                <td><form name="api-select" id="env">
+                        <input type="radio" class="star" name="api-select-test" value="1"/>
+                        <input type="radio" class="star" name="api-select-test" value="2"/>
+                        <input type="radio" class="star" name="api-select-test" value="3"/>
+                        <input type="radio" class="star" name="api-select-test" value="4"/>
+                        <input type="radio" class="star" name="api-select-test" value="5"/>
+                    </form>
+                </td>
             </tr>
             <tr>
-                <th>Secoursetinterventionurgence</th>
-                <td>{{ entity.secoursetinterventionurgence }}</td>
+                <th>Secours</th>
+                <td><form name="api-select" id="secours">
+                        <input type="radio" class="star" name="api-select-test" value="1"/>
+                        <input type="radio" class="star" name="api-select-test" value="2"/>
+                        <input type="radio" class="star" name="api-select-test" value="3"/>
+                        <input type="radio" class="star" name="api-select-test" value="4"/>
+                        <input type="radio" class="star" name="api-select-test" value="5"/>
+                    </form>
+                </td>
             </tr>
             <tr>
                 <th>Sante</th>
-                <td>{{ entity.sante }}</td>
+                <td><form name="api-select" id="sant">
+                        <input type="radio" class="star" name="api-select-test" value="1"/>
+                        <input type="radio" class="star" name="api-select-test" value="2"/>
+                        <input type="radio" class="star" name="api-select-test" value="3"/>
+                        <input type="radio" class="star" name="api-select-test" value="4"/>
+                        <input type="radio" class="star" name="api-select-test" value="5"/>
+                    </form>
+                </td>
             </tr>
             <tr>
                 <th>Loisirs</th>
-                <td>{{ entity.loisirs }}</td>
+                <td><form name="api-select" id="lois">
+                        <input type="radio" class="star" name="api-select-test" value="1"/>
+                        <input type="radio" class="star" name="api-select-test" value="2"/>
+                        <input type="radio" class="star" name="api-select-test" value="3"/>
+                        <input type="radio" class="star" name="api-select-test" value="4"/>
+                        <input type="radio" class="star" name="api-select-test" value="5"/>
+                    </form>
+                </td>
             </tr>
             <tr>
-                <th>Securite</th>
-                <td>{{ entity.securite }}</td>
+                <th>Sécurite</th>
+                <td><form name="api-select" id="sec">
+                        <input type="radio" class="star" name="api-select-test" value="1"/>
+                        <input type="radio" class="star" name="api-select-test" value="2"/>
+                        <input type="radio" class="star" name="api-select-test" value="3"/>
+                        <input type="radio" class="star" name="api-select-test" value="4"/>
+                        <input type="radio" class="star" name="api-select-test" value="5"/>
+                    </form>
+                </td>
             </tr>
             <tr>
                 <th>Transport</th>
-                <td>{{ entity.transport }}</td>
+                <td><form name="api-select" id="tr">
+                        <input type="radio" class="star" name="api-select-test" value="1"/>
+                        <input type="radio" class="star" name="api-select-test" value="2"/>
+                        <input type="radio" class="star" name="api-select-test" value="3"/>
+                        <input type="radio" class="star" name="api-select-test" value="4"/>
+                        <input type="radio" class="star" name="api-select-test" value="5"/>
+                    </form>
+                </td>
             </tr>
             <tr>
-                <th>Eauxusees</th>
-                <td>{{ entity.eauxusees }}</td>
+                <th>Eaux usées</th>
+                <td><form name="api-select" id="onas">
+                        <input type="radio" class="star" name="api-select-test" value="1"/>
+                        <input type="radio" class="star" name="api-select-test" value="2"/>
+                        <input type="radio" class="star" name="api-select-test" value="3"/>
+                        <input type="radio" class="star" name="api-select-test" value="4"/>
+                        <input type="radio" class="star" name="api-select-test" value="5"/>
+                    </form>
+                </td>
             </tr>
             <tr>
-                <th>Nbrvote</th>
+                <th>Nombre de votes</th>
                 <td>{{ entity.nbrvote }}</td>
             </tr>
         </tbody>
     </table>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('zone') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('zone_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('zone') }}">
+                Back to the list
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('zone_edit', { 'id': entity.id }) }}">
+                Edit
+            </a>
+        </li>
+        <li>{{ form(delete_form) }}</li>
+    </ul>
 {% endblock %}
