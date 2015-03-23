@@ -6,7 +6,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Pidev\ReaBundle\Entity\Zone;
-use Pidev\ReaBundle\Form\ZoneType;
+use Pidev\ReaBundle\Form\newZoneForm;
 
 /**
  * Zone controller.
@@ -62,13 +62,7 @@ class ZoneController extends Controller
      */
     private function createCreateForm(Zone $entity)
     {
-        $form = $this->createForm(new ZoneType(), $entity, array(
-            'action' => $this->generateUrl('zone_create'),
-            'method' => 'POST',
-        ));
-
-        $form->add('submit', 'submit', array('label' => 'Create'));
-
+        $form = $this->createForm(new newZoneForm(), $entity);
         return $form;
     }
 
@@ -76,15 +70,34 @@ class ZoneController extends Controller
      * Displays a form to create a new Zone entity.
      *
      */
+public function initZone(){
+        $entity = new Zone();
+        $entity->setSecurite(0);
+        $entity->setSecoursetinterventionurgence(0);
+        $entity->setSante(0);
+        $entity->setTransport(0);
+        $entity->setEauxusees(0);
+        $entity->setEducation(0);
+        $entity->setEnvironement(0);
+        $entity->setLoisirs(0);
+        $entity->setNbrvote(0);
+        return $entity;
+}
     public function newAction()
     {
-        $entity = new Zone();
+        $entity=$this->initZone();
         $form   = $this->createCreateForm($entity);
-
+        $request = $this->get('request_stack')->getCurrentRequest();
+        $form->handleRequest($request);
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($entity);
+            $em->flush();
+            return $this->redirect($this->generateUrl('zone_show', array('id' => $entity->getId())));
+        }
         return $this->render('PidevReaBundle:Zone:new.html.twig', array(
             'entity' => $entity,
-            'form'   => $form->createView(),
-        ));
+            'form'   => $form->createView()));
     }
 
     /**
@@ -142,7 +155,7 @@ class ZoneController extends Controller
     */
     private function createEditForm(Zone $entity)
     {
-        $form = $this->createForm(new ZoneType(), $entity, array(
+        $form = $this->createForm(new newZoneForm(), $entity, array(
             'action' => $this->generateUrl('zone_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
@@ -221,13 +234,5 @@ class ZoneController extends Controller
             ->getForm()
         ;
     }
-    private function ahmedAction($id)
-    {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('zone_delete', array('id' => $id)))
-            ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
-            ->getForm()
-        ;
-    }
+
 }

@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class ZoneType extends AbstractType
+class newZoneForm extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -16,15 +16,7 @@ class ZoneType extends AbstractType
     {
         $builder
             ->add('libelle')
-            ->add('education')
-            ->add('environement')
-            ->add('secoursetinterventionurgence')
-            ->add('sante')
-            ->add('loisirs')
-            ->add('securite')
-            ->add('transport')
-            ->add('eauxusees')
-            ->add('nbrvote')
+            
         ;
     }
     
