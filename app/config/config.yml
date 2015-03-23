@@ -75,7 +75,7 @@ swiftmailer:
 nomaya_social:
     buttons:
         facebook:
-            url:            "https://www.facebook.com/reapidev"
+            url:            null
             locale:         "fr_FR"
             send:           false
             width:          300
@@ -86,10 +86,10 @@ nomaya_social:
             locale:         "fr"
             message:        "Je veux partager ça avec vous"
             text:           "Tweet"
-            via:            "L'Equipe cartedevisitevirtuelle.fr"
-            tag:            "ttot"
+            via:            "Rea pidev"
+            tag:            "Rea"
         googleplus:
-            url:            null
+            url:            "https://www.facebook.com/reapidev"
             locale :        "fr"
             size :          "medium"
             annotation :    "bubble"

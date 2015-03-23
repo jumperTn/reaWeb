@@ -145,10 +145,10 @@ class __TwigTemplate_37ae677063c21b69ae180f279dfd9060353f4ee69742d6237cd2d88c7b0
             </a>
         </li>
     </ul>
-                        <div id=\"test\"> ";
+                        ";
         // line 59
-        echo $this->env->getExtension('nomaya_social_bar')->getSocialButtons();
-        echo "</div>
+        echo $this->env->getExtension('nomaya_social_bar')->getSocialButtons(array("linkedin" => false));
+        echo "
     ";
     }
 

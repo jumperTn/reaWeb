@@ -580,7 +580,7 @@
     <parameter key="sensio_framework_extra.converter.datetime.class">Sensio\Bundle\FrameworkExtraBundle\Request\ParamConverter\DateTimeParamConverter</parameter>
     <parameter key="sensio_framework_extra.view.listener.class">Sensio\Bundle\FrameworkExtraBundle\EventListener\TemplateListener</parameter>
     <parameter key="buttons.facebook" type="collection">
-      <parameter key="url">https://www.facebook.com/reapidev</parameter>
+      <parameter key="url">null</parameter>
       <parameter key="locale">fr_FR</parameter>
       <parameter key="send">false</parameter>
       <parameter key="width">300</parameter>
@@ -593,14 +593,14 @@
       <parameter key="locale">fr</parameter>
       <parameter key="message">Je veux partager ça avec vous</parameter>
       <parameter key="text">Tweet</parameter>
-      <parameter key="via">L'Equipe cartedevisitevirtuelle.fr</parameter>
-      <parameter key="tag">ttot</parameter>
+      <parameter key="via">Rea pidev</parameter>
+      <parameter key="tag">Rea</parameter>
       <parameter key="showFaces">false</parameter>
       <parameter key="send">true</parameter>
       <parameter key="share">true</parameter>
     </parameter>
     <parameter key="buttons.googleplus" type="collection">
-      <parameter key="url">null</parameter>
+      <parameter key="url">https://www.facebook.com/reapidev</parameter>
       <parameter key="locale">fr</parameter>
       <parameter key="size">medium</parameter>
       <parameter key="annotation">bubble</parameter>
