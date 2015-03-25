@@ -15,7 +15,7 @@ class StatController extends Controller{
     public function agenceZoneAction()
     {
     $em = $this->getDoctrine()->getManager();
-    $stats= $em->getRepository("PidevReaBundle:Agence")->nbrAgence();
+    $stats= $em->getRepository("PidevReaBundle:Favoris")->nbrAgence();
      return $this->render("PidevReaBundle:Stat:nbrAgenceZone.html.twig", array('stats' => $stats));
     }
     public function nbrInscritMoisAction()

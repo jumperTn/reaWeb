@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Favoris
  *
  * @ORM\Table(name="favoris", uniqueConstraints={@ORM\UniqueConstraint(name="idUtilisateur_2", columns={"idUtilisateur", "idOffre"})}, indexes={@ORM\Index(name="idOffre", columns={"idOffre"}), @ORM\Index(name="idUtilisateur", columns={"idUtilisateur"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Pidev\ReaBundle\Entity\StatRepository")
  */
 class Favoris
 {

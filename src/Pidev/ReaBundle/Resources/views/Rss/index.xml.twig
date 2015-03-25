@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+
+<channel>
+    <title>nos offres</title>
+    <description>ici vous trouvrez nos offres</description>
+    <link>http://localhost/REA/reaWeb/web/app_dev.php</link>
+{% for terrain in terrains %}
+    <item>
+        <title>{{terrain.type}}</title>
+        <description>{{terrain.description}} surface:{{terrain.surface}} m² adresse: {{terrain.adresse}} url:{{path('offre')}}</description>
+        {% if terrain.type =='terrain'%}
+        <link>http://localhost/REA/reaWeb/web/app_dev.php/offre/{{terrain.id}}/show</link>
+        {% elseif terrain.type =='immeuble'%}
+        <link>http://localhost/REA/reaWeb/web/app_dev.php/immeuble/{{terrain.id}}/show</link>
+        {% elseif terrain.type =='appartement'%}
+            <link>http://localhost/REA/reaWeb/web/app_dev.php/appartement/{{terrain.id}}/show</link>
+            {%else %}
+              <link>http://localhost/REA/reaWeb/web/app_dev.php/maison/{{terrain.id}}/show</link>  
+              {%endif %}
+    </item>
+    {% endfor %}
+</channel>
+</rss>
+{#
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('rendezvous_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{% if entity.daterendezvous %}{{ entity.daterendezvous|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('rendezvous_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('rendezvous_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('rendezvous_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}
+#}

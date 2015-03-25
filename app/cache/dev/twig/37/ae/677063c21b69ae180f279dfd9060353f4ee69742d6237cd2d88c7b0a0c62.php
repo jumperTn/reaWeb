@@ -9,7 +9,7 @@ class __TwigTemplate_37ae677063c21b69ae180f279dfd9060353f4ee69742d6237cd2d88c7b0
 
         // line 1
         try {
-            $this->parent = $this->env->loadTemplate("::base.html.twig");
+            $this->parent = $this->env->loadTemplate("PidevReaBundle::Layout.html.twig");
         } catch (Twig_Error_Loader $e) {
             $e->setTemplateFile($this->getTemplateName());
             $e->setTemplateLine(1);
@@ -18,13 +18,13 @@ class __TwigTemplate_37ae677063c21b69ae180f279dfd9060353f4ee69742d6237cd2d88c7b0
         }
 
         $this->blocks = array(
-            'body' => array($this, 'block_body'),
+            'content' => array($this, 'block_content'),
         );
     }
 
     protected function doGetParent(array $context)
     {
-        return "::base.html.twig";
+        return "PidevReaBundle::Layout.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = array())
@@ -33,19 +33,19 @@ class __TwigTemplate_37ae677063c21b69ae180f279dfd9060353f4ee69742d6237cd2d88c7b0
     }
 
     // line 3
-    public function block_body($context, array $blocks = array())
+    public function block_content($context, array $blocks = array())
     {
         // line 4
-        echo "<h1>Zone list</h1>
+        echo "
+    <h1>La liste des zones</h1>
 
-    <table class=\"records_list\">
+    <table class=\"records_list\" border=\"2\">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Libelle</th>
+                <th>Nom</th>
                 <th>Education</th>
                 <th>Environement</th>
-                <th>Secoursetinterventionurgence</th>
+                <th>Secours</th>
                 <th>Sante</th>
                 <th>Loisirs</th>
                 <th>Securite</th>
@@ -63,63 +63,57 @@ class __TwigTemplate_37ae677063c21b69ae180f279dfd9060353f4ee69742d6237cd2d88c7b0
         foreach ($context['_seq'] as $context["_key"] => $context["entity"]) {
             // line 25
             echo "            <tr>
-                <td><a href=\"";
-            // line 26
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("zone_show", array("id" => $this->getAttribute($context["entity"], "id", array()))), "html", null, true);
-            echo "\">";
-            echo twig_escape_filter($this->env, $this->getAttribute($context["entity"], "id", array()), "html", null, true);
-            echo "</a></td>
                 <td>";
-            // line 27
+            // line 26
             echo twig_escape_filter($this->env, $this->getAttribute($context["entity"], "libelle", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 28
+            // line 27
             echo twig_escape_filter($this->env, $this->getAttribute($context["entity"], "education", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 29
+            // line 28
             echo twig_escape_filter($this->env, $this->getAttribute($context["entity"], "environement", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 30
+            // line 29
             echo twig_escape_filter($this->env, $this->getAttribute($context["entity"], "secoursetinterventionurgence", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 31
+            // line 30
             echo twig_escape_filter($this->env, $this->getAttribute($context["entity"], "sante", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 32
+            // line 31
             echo twig_escape_filter($this->env, $this->getAttribute($context["entity"], "loisirs", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 33
+            // line 32
             echo twig_escape_filter($this->env, $this->getAttribute($context["entity"], "securite", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 34
+            // line 33
             echo twig_escape_filter($this->env, $this->getAttribute($context["entity"], "transport", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 35
+            // line 34
             echo twig_escape_filter($this->env, $this->getAttribute($context["entity"], "eauxusees", array()), "html", null, true);
             echo "</td>
                 <td>";
-            // line 36
+            // line 35
             echo twig_escape_filter($this->env, $this->getAttribute($context["entity"], "nbrvote", array()), "html", null, true);
             echo "</td>
                 <td>
                 <ul>
                     <li>
                         <a href=\"";
-            // line 40
+            // line 39
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("zone_show", array("id" => $this->getAttribute($context["entity"], "id", array()))), "html", null, true);
             echo "\">show</a>
                     </li>
                     <li>
                         <a href=\"";
-            // line 43
+            // line 42
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("zone_edit", array("id" => $this->getAttribute($context["entity"], "id", array()))), "html", null, true);
             echo "\">edit</a>
                     </li>
@@ -131,14 +125,14 @@ class __TwigTemplate_37ae677063c21b69ae180f279dfd9060353f4ee69742d6237cd2d88c7b0
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['entity'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 49
+        // line 48
         echo "        </tbody>
     </table>
 
         <ul>
         <li>
             <a href=\"";
-        // line 54
+        // line 53
         echo $this->env->getExtension('routing')->getPath("zone_new");
         echo "\">
                 Create a new entry
@@ -146,7 +140,7 @@ class __TwigTemplate_37ae677063c21b69ae180f279dfd9060353f4ee69742d6237cd2d88c7b0
         </li>
     </ul>
                         ";
-        // line 59
+        // line 58
         echo $this->env->getExtension('nomaya_social_bar')->getSocialButtons(array("linkedin" => false));
         echo "
     ";
@@ -164,6 +158,6 @@ class __TwigTemplate_37ae677063c21b69ae180f279dfd9060353f4ee69742d6237cd2d88c7b0
 
     public function getDebugInfo()
     {
-        return array (  150 => 59,  142 => 54,  135 => 49,  123 => 43,  117 => 40,  110 => 36,  106 => 35,  102 => 34,  98 => 33,  94 => 32,  90 => 31,  86 => 30,  82 => 29,  78 => 28,  74 => 27,  68 => 26,  65 => 25,  61 => 24,  39 => 4,  36 => 3,  11 => 1,);
+        return array (  144 => 58,  136 => 53,  129 => 48,  117 => 42,  111 => 39,  104 => 35,  100 => 34,  96 => 33,  92 => 32,  88 => 31,  84 => 30,  80 => 29,  76 => 28,  72 => 27,  68 => 26,  65 => 25,  61 => 24,  39 => 4,  36 => 3,  11 => 1,);
     }
 }

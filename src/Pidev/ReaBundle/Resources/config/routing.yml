@@ -98,3 +98,6 @@ pidev_rea_homepage:
 pidev_rea_stat:
     resource: "@PidevReaBundle/Resources/config/routing/stat.yml"
     prefix:   /stat
+pidev_rea_rss:
+    path:     /rss
+    defaults: { _controller: PidevReaBundle:Rss:index }

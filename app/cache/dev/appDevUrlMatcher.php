@@ -1562,6 +1562,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        // pidev_rea_rss
+        if ($pathinfo === '/rss') {
+            return array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\RssController::indexAction',  '_route' => 'pidev_rea_rss',);
+        }
+
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
     }
 }
