@@ -4,7 +4,6 @@ namespace Pidev\ReaBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
 use Pidev\ReaBundle\Entity\Offre;
 use Pidev\ReaBundle\Form\OffreType;
 
@@ -12,29 +11,41 @@ use Pidev\ReaBundle\Form\OffreType;
  * Offre controller.
  *
  */
-class OffreController extends Controller
-{
+class OffreController extends Controller {
 
     /**
      * Lists all Offre entities.
      *
      */
-    public function indexAction()
-    {
+    public function indexAction() {
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('PidevReaBundle:Offre')->findAll();
 
         return $this->render('PidevReaBundle:Offre:index.html.twig', array(
-            'entities' => $entities,
+                    'entities' => $entities,
         ));
     }
+
+    public function findAction() {
+       $entities=new Offre ();
+        $em = $this->getDoctrine()->getManager();
+        $form = $this->container->get('form.factory')->create(new \Pidev\ReaBundle\Form\RecherchercheType());
+        $request = $this->get('request_stack')->getCurrentRequest();
+        $form->handleRequest($request);
+        if ($form->isValid()) {
+            $lb = $this->get('request')->get('description');
+           $entities = $em->getRepository("PidevReaBundle:Offre")->find(array('description' => $lb));
+        }
+        return $this->render('PidevReaBundle:Offre:index1.html.twig', array('Form' => $form->createView(),'entities' => $entities
+            ));
+    }
+
     /**
      * Creates a new Offre entity.
      *
      */
-    public function createAction(Request $request)
-    {
+    public function createAction(Request $request) {
         $entity = new Offre();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
@@ -48,8 +59,8 @@ class OffreController extends Controller
         }
 
         return $this->render('PidevReaBundle:Offre:new.html.twig', array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
+                    'entity' => $entity,
+                    'form' => $form->createView(),
         ));
     }
 
@@ -60,8 +71,7 @@ class OffreController extends Controller
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createCreateForm(Offre $entity)
-    {
+    private function createCreateForm(Offre $entity) {
         $form = $this->createForm(new OffreType(), $entity, array(
             'action' => $this->generateUrl('offre_create'),
             'method' => 'POST',
@@ -76,14 +86,13 @@ class OffreController extends Controller
      * Displays a form to create a new Offre entity.
      *
      */
-    public function newAction()
-    {
+    public function newAction() {
         $entity = new Offre();
-        $form   = $this->createCreateForm($entity);
+        $form = $this->createCreateForm($entity);
 
         return $this->render('PidevReaBundle:Offre:new.html.twig', array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
+                    'entity' => $entity,
+                    'form' => $form->createView(),
         ));
     }
 
@@ -91,8 +100,7 @@ class OffreController extends Controller
      * Finds and displays a Offre entity.
      *
      */
-    public function showAction($id)
-    {
+    public function showAction($id) {
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('PidevReaBundle:Offre')->find($id);
@@ -104,8 +112,8 @@ class OffreController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('PidevReaBundle:Offre:show.html.twig', array(
-            'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),
+                    'entity' => $entity,
+                    'delete_form' => $deleteForm->createView(),
         ));
     }
 
@@ -113,8 +121,7 @@ class OffreController extends Controller
      * Displays a form to edit an existing Offre entity.
      *
      */
-    public function editAction($id)
-    {
+    public function editAction($id) {
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('PidevReaBundle:Offre')->find($id);
@@ -127,21 +134,20 @@ class OffreController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('PidevReaBundle:Offre:edit.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
+                    'entity' => $entity,
+                    'edit_form' => $editForm->createView(),
+                    'delete_form' => $deleteForm->createView(),
         ));
     }
 
     /**
-    * Creates a form to edit a Offre entity.
-    *
-    * @param Offre $entity The entity
-    *
-    * @return \Symfony\Component\Form\Form The form
-    */
-    private function createEditForm(Offre $entity)
-    {
+     * Creates a form to edit a Offre entity.
+     *
+     * @param Offre $entity The entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
+    private function createEditForm(Offre $entity) {
         $form = $this->createForm(new OffreType(), $entity, array(
             'action' => $this->generateUrl('offre_update', array('id' => $entity->getId())),
             'method' => 'PUT',
@@ -151,12 +157,12 @@ class OffreController extends Controller
 
         return $form;
     }
+
     /**
      * Edits an existing Offre entity.
      *
      */
-    public function updateAction(Request $request, $id)
-    {
+    public function updateAction(Request $request, $id) {
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('PidevReaBundle:Offre')->find($id);
@@ -176,17 +182,17 @@ class OffreController extends Controller
         }
 
         return $this->render('PidevReaBundle:Offre:edit.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
+                    'entity' => $entity,
+                    'edit_form' => $editForm->createView(),
+                    'delete_form' => $deleteForm->createView(),
         ));
     }
+
     /**
      * Deletes a Offre entity.
      *
      */
-    public function deleteAction(Request $request, $id)
-    {
+    public function deleteAction(Request $request, $id) {
         $form = $this->createDeleteForm($id);
         $form->handleRequest($request);
 
@@ -212,13 +218,13 @@ class OffreController extends Controller
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createDeleteForm($id)
-    {
+    private function createDeleteForm($id) {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('offre_delete', array('id' => $id)))
-            ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
-            ->getForm()
+                        ->setAction($this->generateUrl('offre_delete', array('id' => $id)))
+                        ->setMethod('DELETE')
+                        ->add('submit', 'submit', array('label' => 'Delete'))
+                        ->getForm()
         ;
     }
+
 }

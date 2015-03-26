@@ -185,6 +185,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             }
             not_offre_delete:
 
+            // offreFind
+            if ($pathinfo === '/offre/find') {
+                return array (  '_controller' => 'Pidev\\ReaBundle\\Controller\\OffreController::findAction',  '_route' => 'offreFind',);
+            }
+
         }
 
         if (0 === strpos($pathinfo, '/client')) {

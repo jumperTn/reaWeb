@@ -8,7 +8,7 @@
 {% for terrain in terrains %}
     <item>
         <title>{{terrain.type}}</title>
-        <description>{{terrain.description}} surface:{{terrain.surface}} m² adresse: {{terrain.adresse}} url:{{path('offre')}}</description>
+        <description>{{terrain.description}} surface:{{terrain.surface}} m² adresse: {{terrain.adresse}}</description>
         {% if terrain.type =='terrain'%}
         <link>http://localhost/REA/reaWeb/web/app_dev.php/offre/{{terrain.id}}/show</link>
         {% elseif terrain.type =='immeuble'%}

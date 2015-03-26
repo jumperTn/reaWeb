@@ -41,8 +41,6 @@ class __TwigTemplate_97d4a3a9db3b2701f9617876c45c1456a3ffc626b137c0c8db4e13f2641
             echo twig_escape_filter($this->env, $this->getAttribute($context["terrain"], "surface", array()), "html", null, true);
             echo " m² adresse: ";
             echo twig_escape_filter($this->env, $this->getAttribute($context["terrain"], "adresse", array()), "html", null, true);
-            echo " url:";
-            echo $this->env->getExtension('routing')->getPath("offre");
             echo "</description>
         ";
             // line 12
@@ -98,6 +96,6 @@ $context["terrain"], "type", array()) == "appartement")) {
 
     public function getDebugInfo()
     {
-        return array (  84 => 23,  77 => 21,  71 => 19,  65 => 17,  63 => 16,  58 => 15,  56 => 14,  51 => 13,  49 => 12,  39 => 11,  35 => 10,  32 => 9,  28 => 8,  19 => 1,);
+        return array (  82 => 23,  75 => 21,  69 => 19,  63 => 17,  61 => 16,  56 => 15,  54 => 14,  49 => 13,  47 => 12,  39 => 11,  35 => 10,  32 => 9,  28 => 8,  19 => 1,);
     }
 }

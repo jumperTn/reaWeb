@@ -28,3 +28,6 @@ offre_delete:
     path:     /{id}/delete
     defaults: { _controller: "PidevReaBundle:Offre:delete" }
     requirements: { _method: post|delete }
+offreFind:
+    path:     /find
+    defaults: { _controller: "PidevReaBundle:Offre:find" }

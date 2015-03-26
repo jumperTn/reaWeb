@@ -1,0 +1,64 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <form method="POST">
+    {{ form_widget(Form) }}
+    </form>
+    <h1>Offre list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Adresse</th>
+                <th>Etatbien</th>
+                <th>Prix</th>
+                <th>Typeoperation</th>
+                <th>Etat</th>
+                <th>Surface</th>
+                <th>Description</th>
+                <th>Typeusage</th>
+                <th>Type</th>
+                <th>X</th>
+                <th>Y</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('offre_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.adresse }}</td>
+                <td>{{ entity.etatbien }}</td>
+                <td>{{ entity.prix }}</td>
+                <td>{{ entity.typeoperation }}</td>
+                <td>{{ entity.etat }}</td>
+                <td>{{ entity.surface }}</td>
+                <td>{{ entity.description }}</td>
+                <td>{{ entity.typeusage }}</td>
+                <td>{{ entity.type }}</td>
+                <td>{{ entity.x }}</td>
+                <td>{{ entity.y }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('offre_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('offre_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('offre_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}
